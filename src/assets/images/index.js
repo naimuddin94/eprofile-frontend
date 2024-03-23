@@ -1,0 +1,23 @@
+import American from './american.png'
+import AppStore from './appstore.png'
+import Blob1 from './blob1.png'
+import Blob2 from './blob2.png'
+import Blob3 from './blob3.png'
+import Character from './character.png'
+import Character2 from './character2.png'
+import GooglePlay from './googleplay.png'
+import Instagram from './Instagram Logomark.png'
+import Linkedin from './LinkedIn Logomark.png'
+import Logo from './logo.png'
+import LogoMark from './Logomark.png'
+import Master from './master.png'
+import Payoneer from './payoneer.png'
+import Stripe from './stripe.png'
+import Success from './success.png'
+import Twitter from './Twitter Logomark.png'
+import Visa from './visa.png'
+import WhiteLogo from './whitelogo.png'
+import Youtube from './YouTube Logomark.png'
+
+
+export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2, GooglePlay,Instagram, Linkedin, Logo, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube}
