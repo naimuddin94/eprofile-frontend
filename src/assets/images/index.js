@@ -10,7 +10,7 @@ import GooglePlay from './googleplay.png'
 import Instagram from './Instagram Logomark.png'
 import Linkedin from './LinkedIn Logomark.png'
 import Logo from './logo.png'
-import Logo1 from './Frame 22.png'
+import Logo1 from './Group.png'
 import LogoMark from './Logomark.png'
 import Master from './master.png'
 import Payoneer from './payoneer.png'
@@ -20,6 +20,8 @@ import Twitter from './Twitter Logomark.png'
 import Visa from './visa.png'
 import WhiteLogo from './whitelogo.png'
 import Youtube from './YouTube Logomark.png'
+import Home1 from './home-1.jpeg'
+import Person from './person.jpeg'
 
 
-export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Instagram, Linkedin, Logo,Logo1, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube}
+export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Home1,Instagram, Linkedin, Logo,Logo1, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube, Person}

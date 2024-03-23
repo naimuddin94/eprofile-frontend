@@ -16,7 +16,7 @@
     --primary: 24, 100%, 50%; /* change */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 24, 100%, 85%; /* change */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -73,4 +73,10 @@
   /* body {
     @apply bg-background text-foreground;
   } */
+}
+
+.bg-image{
+  background-image: url('../assets/images/home-1.jpeg');
+
+  
 }

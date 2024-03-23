@@ -1,13 +1,12 @@
-'use client'
+
 import { Blob1, Blob2, Blob3 } from '@/assets/images'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+
 import React from 'react'
 
-export default function AuthLayout({child}) {
-    const path = usePathname()
+export default function AuthLayout({child, path}) {
     return (
-        <section className={`bg-background py-16  ${path==='/sign-up'? 'h-max':'h-screen'}  relative z-0`}>
+        <section className={`bg-background py-16  ${path==='/sign-up'? 'h-max':'2xl:h-screen lg:h-max h-screen'}  relative z-0`}>
 
             <Image src={Blob1} alt="blob1" width={250} height={100} className="absolute bottom-0 left-0 -z-10" />
 
