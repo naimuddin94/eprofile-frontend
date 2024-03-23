@@ -5,10 +5,12 @@ import Blob2 from './blob2.png'
 import Blob3 from './blob3.png'
 import Character from './character.png'
 import Character2 from './character2.png'
+import Google from './Google Logomark.png'
 import GooglePlay from './googleplay.png'
 import Instagram from './Instagram Logomark.png'
 import Linkedin from './LinkedIn Logomark.png'
 import Logo from './logo.png'
+import Logo1 from './Frame 22.png'
 import LogoMark from './Logomark.png'
 import Master from './master.png'
 import Payoneer from './payoneer.png'
@@ -20,4 +22,4 @@ import WhiteLogo from './whitelogo.png'
 import Youtube from './YouTube Logomark.png'
 
 
-export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2, GooglePlay,Instagram, Linkedin, Logo, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube}
+export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Instagram, Linkedin, Logo,Logo1, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube}
