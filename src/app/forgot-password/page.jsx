@@ -1,5 +1,5 @@
 'use client'
-import { Character2, Logo1 } from '@/assets/images'
+import { Character2, Logo2 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -14,7 +14,7 @@ export default function ForgotPasswordPage() {
       <div className='flex xl:w-[70%] w-[90%]  mx-auto  '>
         <div className='md:w-[50%] w-full'>
           <div className='w-[90%] mx-auto'>
-            <Image src={Logo1} alt='logo1' width={150} height={20} className='mx-auto mb-5' />
+            <Image src={Logo2} alt='logo1' width={150} height={20} className='mx-auto mb-5' />
             <Card className="pb-10">
               <CardHeader className='text-center'>
                 <CardTitle className='text-2xl'>Forgot Password</CardTitle>

@@ -1,4 +1,4 @@
-import { Character, Google, Linkedin, Logo1, LogoMark } from '@/assets/images'
+import { Character, Google, Linkedin, Logo2, LogoMark } from '@/assets/images'
 import DatePicker from '@/components/share/DatePicker'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -13,7 +13,7 @@ export default function SignUpPage() {
     <div className='flex xl:w-[70%]  mx-auto z-50 '>
       <div className='md:w-[50%] w-full'>
         <div className='w-[90%] mx-auto '>
-          <Image src={Logo1} alt='logo1' width={150} height={20} className='mx-auto mb-5' />
+          <Image src={Logo2} alt='logo1' width={150} height={20} className='mx-auto mb-5' />
           <Card className="pb-10">
             <CardHeader>
               <CardTitle className='text-2xl'>Login</CardTitle>

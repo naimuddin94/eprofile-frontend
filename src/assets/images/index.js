@@ -11,6 +11,7 @@ import Instagram from './Instagram Logomark.png'
 import Linkedin from './LinkedIn Logomark.png'
 import Logo from './logo.png'
 import Logo1 from './Group.png'
+import Logo2 from './Frame 22.png'
 import LogoMark from './Logomark.png'
 import Master from './master.png'
 import Payoneer from './payoneer.png'
@@ -24,4 +25,4 @@ import Home1 from './home-1.jpeg'
 import Person from './person.jpeg'
 
 
-export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Home1,Instagram, Linkedin, Logo,Logo1, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube, Person}
+export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Home1,Instagram, Linkedin, Logo,Logo1,Logo2, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube, Person}
