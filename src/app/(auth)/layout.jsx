@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Layout({ children }) {
     return (
-      <section className="bg-background py-16 relative -z-50">
+      <section className="bg-background py-16 2xl:h-screen xl:h-max h-screen relative -z-50">
         <Image src={Blob1} alt="blob1" width={250} height={100} className="absolute bottom-0 left-0 -z-10"/>
         {children}
         <Image src={Blob2} alt="blob2" width={100} height={100} className="absolute top-20 md:right-56 right-10 -z-10"/>
