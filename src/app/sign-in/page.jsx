@@ -14,7 +14,7 @@ import React, { useState } from 'react'
 export default function SignInPage() {
     const [isClick, setIsClick] = useState(false)
     return (
-        <div className={`flex xl:w-[70%]  mx-auto items-center ${isClick ? "h-max py-10":"h-screen"} `}>
+        <div className={`flex xl:w-[70%]  mx-auto items-center ${isClick ? "sm:h-max h-screen py-10":"h-screen"} `}>
             <div className='md:w-[50%] w-full'>
                 <div className='w-[90%] mx-auto '>
                     <Image src={Logo2} alt='logo1' width={150} height={20} className='mx-auto mb-5' />
