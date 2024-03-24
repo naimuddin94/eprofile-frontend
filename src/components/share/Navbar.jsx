@@ -22,7 +22,7 @@ export default function Navbar() {
                         <li><Link href=''>Services</Link></li>
                         <li><Link href=''>Press</Link></li>
                     </ul>
-                    <CustomBtn style={'flex ga-2'} title={'Sign In '} icon={<User />} isRight={true}/>
+                    <CustomBtn style={'flex ga-2'} title={'Sign In'} icon={<User />} isRight={true} click={()=>window.location.href='/sign-in'}/>
                 </div>
                 <div className='md:hidden block'>
                     <AlignJustify />
