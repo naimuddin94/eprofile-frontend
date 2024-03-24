@@ -83,3 +83,7 @@
 .smallBtn{
   @apply w-min h-min p-1
 }
+
+.center{
+  @apply flex items-center justify-center
+}

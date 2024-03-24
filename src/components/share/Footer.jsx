@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className='md:block hidden'>
             <div className='bg-black '>
                 <div className='w-[90%] mx-auto flex gap-20 justify-between items-center py-10 text-white'>
                     <div className='w-1/5'>
