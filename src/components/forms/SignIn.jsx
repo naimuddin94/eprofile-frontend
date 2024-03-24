@@ -47,7 +47,6 @@ export default function SignIn() {
                 </div>
                 <CustomBtn title={'Sign In'} style={'h-12 w-full'} />
             </form>
-            <FormQns qns={'New User?'} link={'/sign-up'} linkTitle={'Sign Up'}/>
         </Form>
     )
 }
