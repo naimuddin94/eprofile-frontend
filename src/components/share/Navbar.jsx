@@ -5,6 +5,7 @@ import React from 'react'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import { AlignJustify, User } from 'lucide-react'
+import CustomBtn from './CustomBtn'
 
 export default function Navbar() {
 
@@ -21,10 +22,7 @@ export default function Navbar() {
                         <li><Link href=''>Services</Link></li>
                         <li><Link href=''>Press</Link></li>
                     </ul>
-                    <Button className='flex ga-2 hover:bg-[#FF6702]/40'>
-                        SignIn
-                        <User />
-                    </Button>
+                    <CustomBtn style={'flex ga-2'} title={'Sign In '} icon={<User />} isRight={true}/>
                 </div>
                 <div className='md:hidden block'>
                     <AlignJustify />

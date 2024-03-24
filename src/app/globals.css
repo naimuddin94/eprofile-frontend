@@ -77,6 +77,9 @@
 
 .bg-image{
   background-image: url('../assets/images/home-1.jpeg');
+}
 
-  
+/* btn */
+.smallBtn{
+  @apply w-min h-min p-1
 }
