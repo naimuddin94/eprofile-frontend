@@ -7,13 +7,13 @@ import React from 'react'
 export default function Companies() {
 
     return (
-        <div className='md:w-[93%] w-[90%] md:mx-0 mx-auto my-16'>
+        <div className=' w-[90%] mx-auto my-16'>
             <div className='mb-4 flex justify-end'>
                 <CustomBtn style={''} title={'Add New'} />
             </div>
             {/* companies details */}
             <div className='flex flex-col gap-5 '>
-                <div className='md:pl-3 '>
+                <div className=''>
                     <div className='border-[1px] flex md:flex-row flex-col rounded-lg'>
                         <div className='flex md:w-1/2 w-full'>
                             <div className='border-r-[1px] flex items-center w-36'>
@@ -56,7 +56,7 @@ export default function Companies() {
                         </div>
                     </div>
                 </div>
-                <div className='md:pl-3 '>
+                <div className=''>
                     <div className='border-[1px] flex md:flex-row flex-col'>
                         <div className='flex md:w-1/2 w-full'>
                             <div className='border-r-[1px] flex items-center w-36'>
@@ -99,7 +99,7 @@ export default function Companies() {
                         </div>
                     </div>
                 </div>
-                <div className='md:pl-3 '>
+                <div className=''>
                     <div className='border-[1px] flex md:flex-row flex-col'>
                         <div className='flex md:w-1/2 w-full'>
                             <div className='border-r-[1px] flex items-center w-36'>
@@ -142,7 +142,7 @@ export default function Companies() {
                         </div>
                     </div>
                 </div>
-                <div className='md:pl-3 '>
+                <div className=' '>
                     <div className='border-[1px] flex md:flex-row flex-col'>
                         <div className='flex md:w-1/2 w-full'>
                             <div className='border-r-[1px] flex items-center w-36'>
@@ -185,7 +185,7 @@ export default function Companies() {
                         </div>
                     </div>
                 </div>
-                <div className='md:pl-3 '>
+                <div className=' '>
                     <div className='border-[1px] flex md:flex-row flex-col'>
                         <div className='flex md:w-1/2 w-full'>
                             <div className='border-r-[1px] flex items-center w-36'>

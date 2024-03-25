@@ -1,5 +1,5 @@
-import SideBar from '@/components/share/SideBar'
-import React from 'react'
+import SideBar from "@/components/share/SideBar";
+
 
 export default function Layout({ children }) {
   return (

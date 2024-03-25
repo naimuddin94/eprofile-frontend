@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className='border-b-[1px] shadow-xl'>
             <div className='w-[90%] mx-auto flex  justify-between items-center py-3 '>
                 <div onClick={() => window.location.href = '/'}>
-                    <Image src={Logo} alt='logo' width={30} height={20} />
+                    <Image src={Logo} alt='logo' width={40} height={20} className='border-primary border-[2px] p-1 rounded-lg'/>
                 </div>
                 <div className='w-[40%] md:flex hidden justify-between items-center'>
                     <ul className='flex gap-4'>

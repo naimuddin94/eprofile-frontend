@@ -79,6 +79,9 @@
   background-image: url('../assets/images/home-1.jpeg');
 }
 
+.bg-pLight{
+  @apply bg-[#FF6702]/40
+}
 /* btn */
 .smallBtn{
   @apply w-min h-min p-1

@@ -24,6 +24,7 @@ import Youtube from './YouTube Logomark.png'
 import Home1 from './home-1.jpeg'
 import Person from './person.jpeg'
 import Company1 from './company1.jpeg'
+import PIcon from './imgIcon.jpg'
 
 
-export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Home1,Instagram, Linkedin, Logo,Logo1,Logo2, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube, Person, Company1}
+export {American,AppStore,Blob1,Blob2,Blob3, Character, Character2,Google, GooglePlay,Home1,Instagram, Linkedin, Logo,Logo1,Logo2, LogoMark, Master, Payoneer, Stripe, Success, Twitter, Visa, WhiteLogo, Youtube, Person, Company1, PIcon}

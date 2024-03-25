@@ -10,6 +10,7 @@ import CustomBtn from './CustomBtn'
 
 export default function SideBar() {
     const path = usePathname()
+
     return (
         <div className='md:block hidden w-[300px] pb-16 border-r-[2px]'>
             <div>
@@ -18,7 +19,7 @@ export default function SideBar() {
                 </div>
                 <div className='flex flex-col gap-2 justify-center items-center my-4'>
                     <CustomBtn style={'smallBtn'} title={'In Review'}/>
-                    <CustomBtn style={'w-[200px]'} title={` Profile`} icon={<User/>}/>
+                    <CustomBtn style={`w-[200px] ${path === '/profile' && 'bg-[#FF6702]/40'}`} title={` Profile`} icon={<User/>} click={()=> window.location.href='/profile'} />
                     <CustomBtn style={'w-max p-1 h-min'} title={'$20'}/>
                 </div>
                 <ul className=''>

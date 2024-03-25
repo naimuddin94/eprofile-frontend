@@ -1,80 +1,41 @@
-import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ShoppingBag } from 'lucide-react';
-import CustomBtn from '@/components/share/CustomBtn';
+'use client'
+
+
+import { Name } from '@/components'
+import { tabList } from '@/lib/data'
+import { useSearchParams } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
 export default function Profile() {
-    return (
-
-        <div className='w-[90%] mx-auto my-16 grid grid-cols-3 gap-3'>
-            <Card className="w-[320px] bg-primary text-white">
-                <CardHeader>
-                    <CardTitle className=' text-[16px] text-center'>0</CardTitle>
-
-                </CardHeader>
-                <CardContent className='flex flex-col justify-center items-center'>
-                    <h1 className='font-bold'>There is a connection</h1>
-                    <p className='text-center my-5'>each biodata requires 1 connection to
-                        view contact information</p>
-                    <Button className='border-[1px] rounded-full w-[80%] '>Send</Button>
-                </CardContent>
-
-
-            </Card>
-            <Card className="w-[320px]">
-                <CardHeader>
-                    <CardTitle className='text-primary text-[16px] text-center'>0</CardTitle>
-
-                </CardHeader>
-                <CardContent className='flex flex-col justify-center items-center'>
-                    <h1 className='font-bold text-primary'>Number of biodata visits</h1>
-                    <p className='text-center my-5'>Number of times your biodata has been visited</p>
-                    <div className='flex justify-between gap-3'>
-                        <div>
-                            <CustomBtn style={'smallBtn'} title={'Last 30 days'} />
-                            <p className='text-center'>0</p>
-                        </div>
-                        <div>
-                            <CustomBtn style={'smallBtn'} title={'Last 7 days'} />
-                            <p className='text-center'>0</p>
-                        </div>
-                        <div>
-                            <CustomBtn style={'smallBtn'} title={'Today'} />
-                            <p className='text-center'>0</p>
-                        </div>
-                    </div>
-                </CardContent>
-
-            </Card>
-            <Card className="w-[320px]">
-                <CardHeader>
-                    <CardTitle className='text-primary text-[16px] text-center'>0</CardTitle>
-
-                </CardHeader>
-                <CardContent className='flex flex-col justify-center items-center'>
-                    <h1 className='font-bold text-primary'>Number of biodata visits</h1>
-                    <p className='text-center my-5'>Number of times your biodata has been visited</p>
-                </CardContent>
-
-            </Card>
-            <Card className="w-[320px]">
-                <CardHeader>
-                    <CardTitle className='text-primary text-[16px] text-center'>0</CardTitle>
-
-                </CardHeader>
-                <CardContent className='flex gap-3'>
-                    <div>
-                        <ShoppingBag size={40} color='#FF6702' />
-                    </div>
-                    <div className='text-end'>
-                        <h1 className='font-bold text-primary'>My Purchases</h1>
-                        <p>All information regarding your purchase</p>
-                    </div>
-                </CardContent>
-
-            </Card>
-        </div>
-
+  // let search =  useSearchParams()
+  // search = search.get('tab')
+  // console.log(search)
+  const [value, setValue] = useState('name')
+  useEffect(()=>{
+    window.history.pushState(
+      null,
+      '',
+      `?tab=${value}`
     )
+  },[value])
+  return (
+    <section className='w-[95%] mx-auto py-10 flex '>
+      <div className='2xl:w-[30%] w-[37%] border-r-[1px] border-primary'>
+        {tabList.map(item => <div onClick={() => setValue(item.value)} key={item.id} className='cursor-pointer relative mb-8'>
+          <p className={` ${value === item.value ? 'text-primary font-bold' : 'text-gray-400'}`}>{item.title}</p>
+          <div className={`absolute top-1/2 -translate-y-1/2 -right-3 w-6 h-6 border-[1px] center ${value === item.value ? 'border-primary ': 'border-gray-400 '} rounded-full`}>
+            <div className={`w-4 h-4 ${value === item.value? 'bg-primary': 'bg-gray-400'} rounded-full`}/>
+          </div>
+        </div>)}
+      </div>
+      <div className='2xl:w-[70%] w-[63%] flex justify-end'>
+        <div className='w-[95%]  '>
+          {value === 'name' && <Name setValue={setValue}/>}
+          {value === 'title' && <div className=' w-full '>
+            <p>Title</p>
+          </div>}
+        </div>
+      </div>
+    </section>
+  )
 }
