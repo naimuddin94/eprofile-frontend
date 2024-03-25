@@ -33,10 +33,10 @@ export default function Name({setValue}) {
         <section>
             {/* image section */}
             <div className='relative'>
-                <div className='h-[35vh] w-full bg-slate-300 rounded-xl relative'>
+                <div className='md:h-[35vh] h-[25vh] w-full bg-slate-300 rounded-xl relative'>
                     {coverImg && <Image src={URL.createObjectURL(coverImg)} alt='cover image' width={600} height={100} className='absolute top-0 h-full w-full rounded-xl object-cover' />}
                 </div>
-                <div onClick={handlePersonImgClk} className='bg-slate-300 w-[170px] h-[170px] rounded-full absolute -bottom-[4.8rem] left-1/2 -translate-x-1/2'>
+                <div onClick={handlePersonImgClk} className='bg-slate-300 md:w-[170px] w-[120px] md:h-[170px] h-[120px] rounded-full absolute md:-bottom-[4.8rem] -bottom-[3rem] md:left-1/2 md:-translate-x-1/2 left-5'>
                     <Input type="file" name="picture" className='hidden' ref={personImgRef} onChange={handlePersonImgCng} />
                     {personImg && <Image src={URL.createObjectURL(personImg)} alt='person' width={100} height={100} className='w-full h-full rounded-full  object-cover' />}
                     <div className='text-primary absolute bottom-0 right-4 p-1 rounded-full bg-[#ffe8d9]'>
@@ -46,7 +46,7 @@ export default function Name({setValue}) {
                 </div>
                 <div onClick={handleImgClk} className='absolute bottom-2 right-2'>
                     <Input type="file" name="picture" className='hidden' ref={imgRef} onChange={handleImgCng} />
-                    <div className='flex gap-2 text-primary bg-[#ffe8d9] w-max p-2 rounded-md'>
+                    <div className='flex gap-2 items-center text-primary bg-[#ffe8d9] w-max p-2 rounded-md md:text-[16px] text-[12px]'>
                         <Camera />
                         <p>Add Cover Photo</p>
                     </div>

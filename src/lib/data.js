@@ -127,7 +127,7 @@ export const tabList = [
       value: 'hobbies'
     },
     {
-      id: 2,
+      id: 14,
       title: 'Career Goals or Aspirations',
       value: 'goals'
     },
