@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/Components/Container";
+import Container from "@/components/Container";
 
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
@@ -19,7 +19,7 @@ import image2 from "../../assets/Frame 611 (1).png";
 import image3 from "../../assets/Frame 611.png";
 import user from "../../assets/Ellipse 10.png";
 import Image from "next/image";
-import Ratings from "@/Components/Ratings/Ratings";
+import Ratings from "@/components/Ratings/Ratings";
 
 const images = [image1, image2, image3];
 

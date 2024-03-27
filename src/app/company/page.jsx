@@ -12,7 +12,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 
 import Link from "next/link";
-import Ratings from "@/Components/Ratings/Ratings";
+import Ratings from "@/components/Ratings/Ratings";
 
 const Company = () => {
   return (

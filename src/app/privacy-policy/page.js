@@ -1,6 +1,6 @@
-import Container from "@/Components/Container";
-import Header from "@/Components/shared/Header";
-import data from "../../Components/data/policy.json";
+import Container from "@/components/Container";
+import Header from "@/components/shared/Header";
+import data from "../../components/data/policy.json";
 import React from "react";
 
 const PrivacyPolicy = ({ title }) => {
