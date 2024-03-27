@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import Header from "@/components/shared/Header";
+import Header from "@/components/share/Header";
 import data from "../../components/data/policy.json";
 import React from "react";
 
