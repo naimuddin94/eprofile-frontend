@@ -1,4 +1,4 @@
-import Name from './profile/Name.jsx'
+import Name from '../app/(auth)/_components/profile/Name.jsx'
 
 
 export {Name}

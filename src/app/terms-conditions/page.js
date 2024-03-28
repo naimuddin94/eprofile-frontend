@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 import Header from "@/components/share/Header";
 import data from "../../components/data/terms.json";
 import React from "react";

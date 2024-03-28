@@ -5,7 +5,7 @@ import Image from "next/image";
 import Ratings from "@/components/Ratings/Ratings";
 import user1 from "../../assets/profiles/user-1.png";
 
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 
 import HeaderTabs from "@/components/SingleProfile/HeaderTabs";
 

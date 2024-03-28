@@ -78,58 +78,63 @@ export const tabList = [
     },
     {
       id: 4,
+      title: 'Contact Information',
+      value: 'contact'
+    },
+    {
+      id: 5,
       title: 'Education',
       value: 'education'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Work Experience',
       value: 'work'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Skills',
       value: 'skills'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Professional Memberships or Affiliations',
       value: 'member'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Languages',
       value: 'languages'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Volunteer Work or Community Involvement',
       value: 'volunteer'
     },
     {
-      id: 10,
+      id: 11,
       title: 'Projects or Portfolio (if applicable)',
       value: 'projects'
     },
     {
-      id: 11,
+      id: 12,
       title: 'Publications or Presentations (if applicable)',
       value: 'publications'
     },
     {
-      id: 12,
+      id: 13,
       title: 'Testimonials or Recommendations',
       value: 'testimonials'
     },
     {
-      id: 13,
+      id: 14,
       title: 'Personal Interests or Hobbies (optional)',
       value: 'hobbies'
     },
     {
-      id: 14,
+      id: 15,
       title: 'Career Goals or Aspirations',
       value: 'goals'
     },
-  ]
+]
 

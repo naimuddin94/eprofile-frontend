@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 import React from "react";
 import user from "../../assets/press/user.png";
 import Image from "next/image";

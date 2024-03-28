@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import card from "../../assets/companies/card.png";

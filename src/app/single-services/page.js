@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";

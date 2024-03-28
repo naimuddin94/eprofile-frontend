@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 import Header from "@/components/share/Header";
 import img from "../../assets/About/about.png";
 import Image from "next/image";

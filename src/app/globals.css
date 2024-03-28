@@ -91,12 +91,27 @@
   @apply flex items-center justify-center
 }
 
+/* login input */
 .input{
   @apply px-4 w-full h-12 box-border outline-none border-[1px] border-solid rounded-md border-gray-300
 }
+
 .placeholder{
   @apply absolute top-1/2 -translate-y-1/2 left-4 text-[14px]  text-[#666] duration-300 pointer-events-none 
 }
 .input:focus + .placeholder{
   @apply -top-[0.1px] text-gray-500 bg-[#fff]
+}
+
+/* profile */
+.profileInput{
+  @apply  border-[1px] border-primary rounded-lg w-full mt-2 outline-none text-[16px] px-4 shadow-3xl
+}
+
+.doubleInput{
+  @apply flex gap-10;
+}
+
+.formGap{
+  @apply space-y-4;
 }

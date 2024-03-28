@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/components/share/Container";
 import Header from "@/components/share/Header";
 import linkedin from "../../assets/Footer/LinkedIn Logomark.png";
 import facebook from "../../assets/Footer/Logomark.png";

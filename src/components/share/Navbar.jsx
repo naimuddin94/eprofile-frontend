@@ -15,7 +15,7 @@ export default function Navbar() {
                 <div onClick={() => window.location.href = '/'}>
                     <Image src={Logo} alt='logo' width={40} height={20} className='border-primary border-[2px] p-1 rounded-lg'/>
                 </div>
-                <div className='w-[40%] md:flex hidden justify-between items-center'>
+                <div className='lg:w-[40%] md:flex gap-3  hidden justify-between items-center'>
                     <ul className='flex gap-4'>
                         <li><Link href='/company'>Companies</Link></li>
                         <li><Link href='/profiles'>Profiles</Link></li>
