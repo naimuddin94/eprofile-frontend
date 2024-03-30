@@ -5,7 +5,7 @@ export const sidebarList=[
     {
         id: 1,
         title: 'Dashboard',
-        link: '/dashboard',
+        link: '/profile_dashboard',
         icon: <HomeIcon className=''/>
     },
     {
