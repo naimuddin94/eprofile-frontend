@@ -103,7 +103,10 @@
   @apply -top-[0.1px] text-gray-500 bg-[#fff]
 }
 
-/* profile */
+/* dashboard profile */
+.profileHeader{
+  @apply md:text-2xl text-xl font-bold mb-5;
+}
 .profileInput{
   @apply  border-[1px] border-primary rounded-lg w-full mt-2 outline-none text-[16px] px-4 shadow-3xl
 }

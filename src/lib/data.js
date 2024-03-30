@@ -5,49 +5,57 @@ export const sidebarList=[
     {
         id: 1,
         title: 'Dashboard',
-        link: '/profile_dashboard',
+        link: '/dashboard',
+        link1: '',
         icon: <HomeIcon className=''/>
     },
     {
         id: 2,
         title: 'Companies',
-        link: '/companies',
+        link: '/dashboard/companies',
+        link1: '/dashboard/companies/add-company',
         icon: <Pencil className=''/>
     },
     {
         id: 3,
         title: 'My Review',
-        link: '/my-review',
+        link: '/dashboard/my-reviews',
+        link1: '',
         icon: <Star className=''/>
     },
     {
         id: 4,
         title: 'Press',
-        link: '/press',
+        link: '/dashboard/press',
+        link1: '',
         icon: <BookOpen className=''/>
     },
     {
         id: 5,
         title: 'Services',
-        link: '/services',
+        link: '/dashboard/services',
+        link1: '',
         icon: <HandHelping className=''/>
     },
     {
         id: 6,
         title: 'Purchases',
-        link: '/purchases',
+        link: '/dashboard/purchases',
+        link1: '',
         icon: <ShoppingBag className=''/>
     },
     {
         id: 7,
         title: 'Support & Reports',
-        link: '/support-reports',
+        link: '/dashboard/support-reports',
+        link1: '',
         icon: <MessageCircleWarning className=''/>
     },
     {
         id: 8,
         title: 'Settings',
-        link: '/settings',
+        link: '/dashboard/settings',
+        link1: '',
         icon: <Settings className=''/>
     },
     {
@@ -135,6 +143,83 @@ export const tabList = [
       id: 15,
       title: 'Career Goals or Aspirations',
       value: 'goals'
+    },
+]
+export const addCompanyTabList = [
+    {
+      id: 1,
+      title: 'Company Name and Logo',
+      value: 'name'
+    },
+    {
+      id: 2,
+      title: 'Introduction',
+      value: 'intro'
+    },
+    {
+      id: 3,
+      title: 'Mission Statement',
+      value: 'mission'
+    },
+    {
+      id: 4,
+      title: 'History',
+      value: 'history'
+    },
+    {
+      id: 5,
+      title: 'Founders/Key Executives',
+      value: 'executives'
+    },
+    {
+      id: 6,
+      title: 'Location and Facilities',
+      value: 'location'
+    },
+    {
+      id: 7,
+      title: 'Products or Services',
+      value: 'product'
+    },
+    {
+      id: 8,
+      title: 'Target Market',
+      value: 'market'
+    },
+    {
+      id: 9,
+      title: 'Competitive Advantage',
+      value: 'advantage'
+    },
+    {
+      id: 10,
+      title: 'Financial Overview',
+      value: 'overview'
+    },
+    {
+      id: 11,
+      title: 'Milestones and Achievements',
+      value: 'milestones'
+    },
+    {
+      id: 12,
+      title: 'Partnerships or Affiliations',
+      value: 'partnerships'
+    },
+    {
+      id: 13,
+      title: 'Social Responsibility Initiatives',
+      value: 'responsibility'
+    },
+    {
+      id: 14,
+      title: 'Future Goals and Outlook',
+      value: 'goals'
+    },
+    {
+      id: 15,
+      title: 'Contact Information',
+      value: 'contact'
     },
 ]
 
