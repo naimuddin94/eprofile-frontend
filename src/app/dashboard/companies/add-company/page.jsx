@@ -1,14 +1,15 @@
 'use client'
 import React, { Suspense } from 'react'
 import { CompanyTabContents, Loading, ProfileTabContents, TabLists } from '../../_components'
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 import { addCompanyTabList } from '@/lib/data'
 
+
 export default function AddCompany() {
-  let search = useSearchParams()
-  search = search.get('tab')
+  // let search = useSearchParams()
+  
   // console.log(search)
-  const [value, setValue] = React.useState(search || 'name')
+  const [value, setValue] = React.useState('name')
   React.useEffect(() => {
     window.history.pushState(
       null,
