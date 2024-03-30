@@ -1,22 +1,22 @@
 'use client'
 import React, { Suspense } from 'react'
 import { CompanyTabContents, Loading, ProfileTabContents, TabLists } from '../../_components'
-import { useSearchParams } from 'next/navigation'
 import { addCompanyTabList } from '@/lib/data'
-export const dynamic = 'force-dynamic'
+// import { useSearchParams } from 'next/navigation'
+// export const dynamic = 'force-dynamic'
 
 export default function AddCompany() {
-  let search = useSearchParams()
-  search = search.get('tab')
+  // let search = useSearchParams()
+  // search = search.get('tab')
   // console.log(search)
-  const [value, setValue] = React.useState(search || 'name')
+  const [value, setValue] = React.useState('name')
   React.useEffect(() => {
     window.history.pushState(
       null,
       '',
       `?tab=${value}`
     )
-  }, [value, search])
+  }, [value])
   return (
     <Suspense fallback={<Loading />}>
       <section className='md:w-[95%]  w-full md:mx-auto py-10 md:flex '>
