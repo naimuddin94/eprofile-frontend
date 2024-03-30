@@ -17,6 +17,7 @@ import Title from './profile_section/profile_tab/TiTle'
 import ComingSoon from './share/ComingSoon'
 import ProfileHeader from './share/ProfileHeader'
 import TabLists from './share/TabLists'
+import Loading from './share/Loading'
 import ProfileTabContents from './profile_section/ProfileTabContents'
 import CompanyTabContents from './company_section/CompanyTabContents'
 
@@ -38,4 +39,4 @@ import CompanyGoals from './company_section/company_tabs/CompanyGoals'
 import CompanyContact from './company_section/company_tabs/CompanyContact'
 
 
-export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact}
+export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact, Loading}
