@@ -24,7 +24,7 @@ export default function SideBar() {
                 </div>
                 <ul className=''>
                     {sidebarList.map(item =>
-                        <li key={item.id} className={`hover:bg-gray-200 hover:text-primary py-3 lg:px-12 px-5 ${path === item.link || path === item.link1 ? 'bg-gray-200 text-primary' : ''}`}><Link href={item.link} className='flex gap-2'>{item.icon} <span>{item.title}</span></Link></li>
+                        <li key={item.id} className={`hover:bg-gray-200 hover:text-primary hover:font-bold py-3 lg:px-12 px-5 ${path === item.link || path === item.link1 ? 'bg-gray-200 text-primary font-bold' : ''}`}><Link href={item.link} className='flex gap-2 '>{item.icon} <span>{item.title}</span></Link></li>
                     )}
                 </ul>
             </div>

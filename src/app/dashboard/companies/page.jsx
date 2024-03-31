@@ -12,7 +12,7 @@ export default function Companies() {
     }
 
     return (
-        <div className=' w-[90%] mx-auto my-16'>
+        <div className='container'>
             <div className='mb-4 flex justify-end'>
                 <CustomBtn style={''} title={'Add New'}  click={handleAdd}/>
             </div>

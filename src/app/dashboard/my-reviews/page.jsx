@@ -1,9 +1,13 @@
 import React from 'react'
-import { ComingSoon } from '../_components'
+import { ComingSoon, DashboardHeader } from '../_components'
 
 
 export default function MyReviewsPage() {
   return (
-    <ComingSoon/>
+    // <ComingSoon/>
+    <div className='container'>
+      <DashboardHeader title={'My Review'} btnTitle={'My Review'}/>
+      
+    </div>
   )
 }

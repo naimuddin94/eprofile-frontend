@@ -1,9 +1,9 @@
-import React from 'react'
-import { CompanyHistory, CompanyIntro, CompanyLocation, CompanyName, CompanyProducts, Executives, MissionStatement, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals , CompanyContact} from '..'
+import React, { Suspense } from 'react'
+import { CompanyHistory, CompanyIntro, CompanyLocation, CompanyName, CompanyProducts, Executives, MissionStatement, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals , CompanyContact, Loading} from '..'
 
 export default function CompanyTabContents({ value, setValue }) {
     return (
-        <>
+        <Suspense fallback={<Loading/>}>
             {value === 'name' && <CompanyName setValue={setValue} />}
             {value === 'intro' && <CompanyIntro setValue={setValue} />}
             {value === 'mission' && <MissionStatement setValue={setValue} />}
@@ -19,6 +19,6 @@ export default function CompanyTabContents({ value, setValue }) {
             {value === 'responsibility' && <Responsibility setValue={setValue} />}
             {value === 'goals' && <CompanyGoals setValue={setValue} />}
             {value === 'contact' && <CompanyContact setValue={setValue} />}
-        </>
+        </Suspense>
     )
 }

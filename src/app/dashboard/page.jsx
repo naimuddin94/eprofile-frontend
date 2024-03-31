@@ -7,7 +7,7 @@ import CustomBtn from '@/components/share/CustomBtn';
 export default function DashboardPage() {
     return (
 
-        <div className='w-[90%] mx-auto my-16 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 '>
+        <div className='container grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 '>
             <Card className=" bg-primary text-white">
                 <CardHeader>
                     <CardTitle className=' text-[16px] text-center'>0</CardTitle>

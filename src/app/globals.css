@@ -80,7 +80,7 @@
 }
 
 .bg-pLight{
-  @apply bg-[#FF6702]/40
+  @apply bg-[#FF6702]/20
 }
 /* btn */
 .smallBtn{
@@ -90,7 +90,9 @@
 .center{
   @apply flex items-center justify-center
 }
-
+.bCenter{
+  @apply flex items-center justify-between
+}
 /* login input */
 .input{
   @apply px-4 w-full h-12 box-border outline-none border-[1px] border-solid rounded-md border-gray-300
@@ -104,6 +106,9 @@
 }
 
 /* dashboard profile */
+.container{
+  @apply  w-[95%] mx-auto my-16
+}
 .profileHeader{
   @apply md:text-2xl text-xl font-bold mb-5;
 }

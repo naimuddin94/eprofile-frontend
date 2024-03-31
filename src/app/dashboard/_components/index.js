@@ -1,4 +1,4 @@
-
+// profile section
 import Objective from './profile_section/profile_tab/Objective'
 import ContactInfo from './profile_section/profile_tab/ContactInfo'
 import Education from './profile_section/profile_tab/Education'
@@ -14,14 +14,19 @@ import Goals from './profile_section/profile_tab/Goals'
 import Hobbies from './profile_section/profile_tab/Hobbies'
 import Name from './profile_section/profile_tab/Name'
 import Title from './profile_section/profile_tab/TiTle'
-import ComingSoon from './share/ComingSoon'
-import ProfileHeader from './share/ProfileHeader'
+import ProfileTabContents from './profile_section/ProfileTabContents'
+
+
+
+// share
+import DashboardHeader from './share/DashboardHeader'
 import TabLists from './share/TabLists'
 import Loading from './share/Loading'
-import ProfileTabContents from './profile_section/ProfileTabContents'
-import CompanyTabContents from './company_section/CompanyTabContents'
+import ComingSoon from './share/ComingSoon'
+import ProfileHeader from './share/ProfileHeader'
 
-// company
+// company profile
+import CompanyTabContents from './company_section/CompanyTabContents'
 import CompanyName from './company_section/company_tabs/CompanyName'
 import CompanyIntro from './company_section/company_tabs/CompanyIntro'
 import MissionStatement from './company_section/company_tabs/MissionStatement'
@@ -39,4 +44,4 @@ import CompanyGoals from './company_section/company_tabs/CompanyGoals'
 import CompanyContact from './company_section/company_tabs/CompanyContact'
 
 
-export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact, Loading}
+export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact, Loading, DashboardHeader}

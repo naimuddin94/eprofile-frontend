@@ -1,9 +1,9 @@
-import React from 'react'
-import { ContactInfo, Education, Goals, Hobbies, Languages, Member, Name, Objective, Projects, Publications, Skills,  Testimonials, Title, Volunteer, WorkExperience } from '..'
+import React, { Suspense } from 'react'
+import { ContactInfo, Education, Goals, Hobbies, Languages, Loading, Member, Name, Objective, Projects, Publications, Skills,  Testimonials, Title, Volunteer, WorkExperience } from '..'
 
 export default function ProfileTabContents({value, setValue}) {
     return (
-        <>
+        <Suspense fallback={<Loading/>}>
             {value === 'name' && <Name setValue={setValue} />}
             {value === 'title' && <Title setValue={setValue} />}
             {value === 'objective' && <Objective setValue={setValue} />}
@@ -19,6 +19,6 @@ export default function ProfileTabContents({value, setValue}) {
             {value === 'testimonials' && <Testimonials setValue={setValue} />}
             {value === 'hobbies' && <Hobbies setValue={setValue} />}
             {value === 'goals' && <Goals setValue={setValue} />}
-        </>
+        </Suspense>
     )
 }

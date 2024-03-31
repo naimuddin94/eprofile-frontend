@@ -1,4 +1,4 @@
-import { BookOpen, HandHelping, HomeIcon, LogIn, MessageCircleWarning, Pencil, Settings, ShoppingBag, Star, User } from 'lucide-react'
+import { BookOpen, HandHelping, HomeIcon, LogIn, MessageCircleWarning, Pencil, Send, Settings, ShoppingBag, Star, User } from 'lucide-react'
 
 // side bar
 export const sidebarList=[
@@ -25,41 +25,48 @@ export const sidebarList=[
     },
     {
         id: 4,
+        title: 'Message',
+        link: '/dashboard/message',
+        link1: '',
+        icon: <Send className=''/>
+    },
+    {
+        id: 5,
         title: 'Press',
         link: '/dashboard/press',
         link1: '',
         icon: <BookOpen className=''/>
     },
     {
-        id: 5,
+        id: 6,
         title: 'Services',
         link: '/dashboard/services',
         link1: '',
         icon: <HandHelping className=''/>
     },
     {
-        id: 6,
+        id: 7,
         title: 'Purchases',
         link: '/dashboard/purchases',
         link1: '',
         icon: <ShoppingBag className=''/>
     },
     {
-        id: 7,
+        id: 8,
         title: 'Support & Reports',
         link: '/dashboard/support-reports',
         link1: '',
         icon: <MessageCircleWarning className=''/>
     },
     {
-        id: 8,
+        id: 9,
         title: 'Settings',
         link: '/dashboard/settings',
         link1: '',
         icon: <Settings className=''/>
     },
     {
-        id: 9,
+        id: 10,
         title: 'Logout',
         link: '/',
         icon: <LogIn className=''/>
