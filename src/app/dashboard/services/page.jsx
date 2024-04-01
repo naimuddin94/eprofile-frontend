@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Frame } from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { Ellipsis } from 'lucide-react'
+import { Switch } from '@/components/ui/switch'
 
 const tabList = [
   {
@@ -50,8 +51,11 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="w-[25%]  bCenter ">
-                <div>
-                  <p className={`py-2 bg-green-400  text-white text-md w-[140px] center rounded-full `}>Active</p>
+                <div className='bCenter w-[80%]'>
+                  <div>
+                    <p className={`py-2 bg-green-400  text-white text-md w-[140px] center rounded-full `}>Active</p>
+                  </div>
+                  <Switch id="airplane-mode" className='data-[state=checked]:bg-green-400 data-[state=unchecked]:bg-gray-400'/>
                 </div>
                 <Button className="p-0 bg-transparent hover:bg-gray-200 h-min w-min text-md font-bold text-black ">
                   <Ellipsis />

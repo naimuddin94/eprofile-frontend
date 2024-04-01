@@ -120,6 +120,10 @@
   @apply flex gap-10;
 }
 
+.switch{
+  @apply data-[state=checked]:bg-green-400 data-[state=unchecked]:bg-gray-400
+}
+
 .formGap{
   @apply space-y-4;
 }
