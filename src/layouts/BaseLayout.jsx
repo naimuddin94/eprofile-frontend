@@ -6,6 +6,7 @@ import AuthLayout from './AuthLayout'
 import Footer from '@/components/share/Footer'
 import { useLoginStore } from '@/store/userStore'
 
+
 export default function BaseLayout({ child }) {
     const path = usePathname()
     const { logout, isLogin } = useLoginStore()

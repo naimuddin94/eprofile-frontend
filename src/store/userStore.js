@@ -32,25 +32,27 @@ const KEY = "isLogin";
 
 export const getInitialLoggedIn = () => {
     if (typeof window !== "undefined") {
-        return localStorage.getItem(KEY) || false;
+        return localStorage.getItem(KEY) ;
     } else {
         return null;
     }
 };
 export const useLoginStore = create((set) => ({
     ...initial,
-    isLogin: getInitialLoggedIn(),
+    isLogin: getInitialLoggedIn()|| false,
     user: null,
     setLoging: (values) => {
+        set(() => ({ loading: true }))
         localStorage.setItem(KEY, true);
         set((state) => {
             state.isLogin = true;
+            state.loading = false
         });
     },
     logout: async () => {
         set((state) => {
             localStorage.removeItem(KEY);
-            state.isAdminLogin = false;
+            state.isLogin = false;
         })
     }
 
