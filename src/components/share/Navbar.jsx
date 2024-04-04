@@ -13,7 +13,9 @@ const LoginBtn = dynamic(() => import('./LoginBtn'), { ssr: false })
 
 export default function Navbar() {
     const { logout, isLogin } = useLoginStore()
-    
+    useEffect(()=>{
+        
+    },[isLogin])
     return (
         <div className='border-b-[1px]'>
             <div className='w-[90%] mx-auto flex  justify-between items-center py-3 '>

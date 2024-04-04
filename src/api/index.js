@@ -2,6 +2,6 @@ import { apiUrl } from "@/lib/routes";
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: apiUrl,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   withCredentials: true,
 });

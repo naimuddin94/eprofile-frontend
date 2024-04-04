@@ -28,6 +28,7 @@ const formSchema = z.object({
 
 export default function SignIn() {
     const { setLoging } = useLoginStore(state=> state)
+    
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
