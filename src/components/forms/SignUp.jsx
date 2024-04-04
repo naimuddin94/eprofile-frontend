@@ -16,7 +16,7 @@ import axios from "axios"
 import { apiUrl } from "@/lib/routes"
 import { api } from "@/api"
 import { toast } from "sonner"
-import { redirect } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 
 const formSchema = z.object({
     firstName: z.string().min(2, {
@@ -68,6 +68,7 @@ const countries = [
 ]
 export default function SignUp() {
     const { loading, setUser } = useUserStore()
+    const router = useRouter()
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -99,7 +100,7 @@ export default function SignUp() {
                     onClick: () => console.log('Undo')
                 },
             })
-            redirect('/sign-in')
+            router.push('/sign-in')
         }).catch(err => {
             console.log(err)
         })

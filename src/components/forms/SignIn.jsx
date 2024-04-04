@@ -12,7 +12,7 @@ import Link from "next/link"
 import { api } from "@/api"
 import { toast } from "sonner"
 import { useLoginStore } from "@/store/userStore"
-import { redirect } from "next/navigation"
+import { redirect, useRouter } from "next/navigation"
 
 
 
@@ -29,7 +29,7 @@ const formSchema = z.object({
 
 export default function SignIn() {
     const { setLoging } = useLoginStore(state=> state)
-    
+    const router = useRouter()
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -50,7 +50,7 @@ export default function SignIn() {
                         onClick: () => console.log('Undo')
                     },
                 })
-                 redirect('/dashboard/profile')
+                 router.push('/dashboard/profile')
                 setLoging()
             }).catch(error => {
                 toast.success(error, {
