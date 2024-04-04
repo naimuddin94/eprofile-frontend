@@ -12,6 +12,7 @@ import Link from "next/link"
 import { api } from "@/api"
 import { toast } from "sonner"
 import { useLoginStore } from "@/store/userStore"
+import { redirect } from "next/navigation"
 
 
 
@@ -49,7 +50,7 @@ export default function SignIn() {
                         onClick: () => console.log('Undo')
                     },
                 })
-                window.location.href = '/dashboard/profile'
+                 redirect('/dashboard/profile')
                 setLoging()
             }).catch(error => {
                 toast.success(error, {

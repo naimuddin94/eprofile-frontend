@@ -16,6 +16,7 @@ import axios from "axios"
 import { apiUrl } from "@/lib/routes"
 import { api } from "@/api"
 import { toast } from "sonner"
+import { redirect } from "next/navigation"
 
 const formSchema = z.object({
     firstName: z.string().min(2, {
@@ -98,7 +99,7 @@ export default function SignUp() {
                     onClick: () => console.log('Undo')
                 },
             })
-            window.location.href = '/sign-in'
+            redirect('/sign-in')
         }).catch(err => {
             console.log(err)
         })
