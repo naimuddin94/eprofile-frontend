@@ -8,10 +8,11 @@ import { Form } from '../ui/form'
 import CustomInput from '../share/CustomInput'
 import CustomBtn from '../share/CustomBtn'
 import Link from "next/link"
-import FormQns from "../share/FormQns"
+
 import { api } from "@/api"
 import { toast } from "sonner"
 import { useLoginStore } from "@/store/userStore"
+
 
 
 
@@ -26,7 +27,7 @@ const formSchema = z.object({
 })
 
 export default function SignIn() {
-    const {setLoging, isLogin} = useLoginStore()
+    const { setLoging } = useLoginStore(state=> state)
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -38,21 +39,27 @@ export default function SignIn() {
 
     // 2. Define a submit handler.
     function onSubmit(values) {
-        // api.post('/auth/login', values)
-        //     .then(res => {
-        //         // console.log(res.data.message)
-        //         toast.success(res.data.message, {
-        //             action: {
-        //                 label: 'X',
-        //                 onClick: () => console.log('Undo')
-        //             },
-        //         })
-        //         window.location.href = '/dashboard/profile'
-        //     })
-        setLoging(values)
-
+        api.post('/auth/login', values)
+            .then(res => {
+                // console.log(res.data.message)
+                toast.success(res.data.message, {
+                    action: {
+                        label: 'X',
+                        onClick: () => console.log('Undo')
+                    },
+                })
+                window.location.href = '/dashboard/profile'
+                setLoging()
+            }).catch(error => {
+                toast.success(error, {
+                    action: {
+                        label: 'X',
+                        onClick: () => console.log('X')
+                    },
+                })
+            })
     }
-    console.log(isLogin)
+    // console.log(isLogin)
     return (
         <Form {...form} className=''>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

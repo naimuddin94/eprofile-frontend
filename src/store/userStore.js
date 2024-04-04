@@ -42,37 +42,10 @@ export const useLoginStore = create((set) => ({
     isLogin: getInitialLoggedIn(),
     user: null,
     setLoging: (values) => {
-        set(() => ({ loading: true }))
-        try {
-            api.post('/auth/login', values)
-                .then(res => {
-
-                    localStorage.setItem(KEY, true);
-                    set((state) => {
-                        state.isLogin = true;
-                        state.loading = false
-                    });
-                    toast.success(res.data.message, {
-                        action: {
-                            label: 'X',
-                            onClick: () => console.log('X')
-                        },
-                    })
-                    window.location.href = '/dashboard/profile'
-                }
-
-                ).catch(error => console.log(error))
-
-
-        } catch (error) {
-            set((state) => ({ error: error, loading: false }));
-            toast.success(error, {
-                action: {
-                    label: 'X',
-                    onClick: () => console.log('X')
-                },
-            })
-        }
+        localStorage.setItem(KEY, true);
+        set((state) => {
+            state.isLogin = true;
+        });
     },
     logout: async () => {
         set((state) => {
