@@ -4,10 +4,11 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import AuthLayout from './AuthLayout'
 import Footer from '@/components/share/Footer'
+import { useLoginStore } from '@/store/userStore'
 
 export default function BaseLayout({ child }) {
     const path = usePathname()
-    
+    const { logout, isLogin } = useLoginStore()
     return (
         <section>
 
@@ -17,7 +18,7 @@ export default function BaseLayout({ child }) {
                 path === '/reset-password' ?
                 <AuthLayout child={child} path={path} /> :
                 <>
-                    {<Navbar />}
+                    {<Navbar isLogin={isLogin} logout={logout} />}
                     {child}
 
                     <Footer/>
