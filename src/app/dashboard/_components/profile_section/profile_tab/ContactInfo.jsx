@@ -1,14 +1,15 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GroupBtn from '../../share/GroupBtn'
 import ProfileInput from '../../share/ProfileInput'
 import ProfileLinkInput from '../../share/ProfileLinkInput'
 import { Instagram, Linkedin, LogoMark, Twitter, Youtube } from '@/assets/images'
 import { ProfileHeader } from '../..'
+import { useProfileStore } from '@/store/userStore'
 
 export default function ContactInfo({setValue}) {
+    const { loading, profile, setProfile } = useProfileStore()
     const [data, setData] = useState({
-        address: {
             street: '',
             house: '',
             city: '',
@@ -17,35 +18,34 @@ export default function ContactInfo({setValue}) {
             country: '',
             mobile_number: '',
             email: '',
-            website: ''
-        },
-        social_link:{
+            website: '',
             facebook: '',
             twitter: '',
             linkedin: '',
             instagram: '',
-            youtube: ""
-        }
+            youtube: ""        
     })
 
     const handleChange = (e, isAddress) => {
         const { name, value } = e.target;
         const onChange = { ...data };
-        if (isAddress) {
-            onChange.address[name] = value
-        }else{
-            onChange.social_link[name] = value
-        }
+        onChange[name] = value
+        
         setData(onChange)
     }
 
     const handlePrev = () => {
+        setProfile({...profile, contactInformation:data})
         setValue('objective')
     }
     const handleNext = () => {
         console.log(data)
         setValue('education')
     }
+
+    useEffect(() => {
+        console.log(profile);
+    }, [profile])
     return (
         <div>
             <ProfileHeader title={'Contact Information'} />

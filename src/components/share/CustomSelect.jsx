@@ -14,9 +14,9 @@ export default function CustomSelect({ form, name, label, items }) {
                         <FormControl>
                             <div className='relative'>
                                 <SelectTrigger  className='input bg-transparent'>
-                                    <SelectValue  placeholder={label}/>
+                                    <SelectValue  />
                                 </SelectTrigger>
-                                
+                                <FormLabel className='placeholder'>{label}</FormLabel>
                             </div>
                         </FormControl>
                         <SelectContent>

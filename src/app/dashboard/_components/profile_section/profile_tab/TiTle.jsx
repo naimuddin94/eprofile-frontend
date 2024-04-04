@@ -1,26 +1,28 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProfileInput from '../../share/ProfileInput'
 import CustomBtn from '@/components/share/CustomBtn'
 import ProfileTextArea from '../../share/ProfileTextArea'
 import GroupBtn from '../../share/GroupBtn'
 import { ProfileHeader } from '../..'
+import { useProfileStore } from '@/store/userStore'
 
 
 export default function TiTle({ setValue }) {
+    const {loading, profile, setProfile}= useProfileStore()
     const [data, setData] = useState([{
         name: '',
         designation: "",
-        start_date: '',
-        end_date: "",
+        startDate: '',
+        endDate: "",
         responsibilities: ''
     }])
     const handleClick = () => {
         setData([...data, {
             name: '',
             designation: "",
-            start_date: '',
-            end_date: "",
+            startDate: '',
+            endDate: "",
             responsibilities: ''
         }])
     }
@@ -42,8 +44,14 @@ export default function TiTle({ setValue }) {
         setValue('name')
     }
     const handleNext = ()=>{
+        // console.log(data)
+        setProfile({...profile,title:data})
         setValue('objective')
     }
+
+    useEffect(()=>{
+        console.log(profile);
+    },[profile])
     return (
         <div className=''>
             <ProfileHeader title={'Title or Occupation'} />
@@ -57,8 +65,8 @@ export default function TiTle({ setValue }) {
 
                         </div>
                         <div className='doubleInput'>
-                            <ProfileInput type={'date'} value={val.start_date} name={'start_date'} label={'Start date'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e,i)} />
-                            <ProfileInput type={'date'} value={val.end_date} name={'end_date'} label={'End date'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e,i)} />
+                            <ProfileInput type={'date'} value={val.startDate} name={'startDate'} label={'Start date'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e,i)} />
+                            <ProfileInput type={'date'} value={val.endDate} name={'endDate'} label={'End date'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e,i)} />
                         </div>
                         <ProfileTextArea label={'Responsibilities'} value={val.responsibilities} name={'responsibilities'}  isStar={false} style={'profileInput p-3 h-24'} change={(e) => handleChange(e,i)} />
                         <CustomBtn style={'p-0 w-8 rounded-full h-8 absolute -top-2 right-2'} title={'X'} click={()=>handleDelete(i)} />

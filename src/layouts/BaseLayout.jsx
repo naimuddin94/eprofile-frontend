@@ -7,6 +7,7 @@ import Footer from '@/components/share/Footer'
 
 export default function BaseLayout({ child }) {
     const path = usePathname()
+    
     return (
         <section>
 
@@ -18,6 +19,7 @@ export default function BaseLayout({ child }) {
                 <>
                     {<Navbar />}
                     {child}
+
                     <Footer/>
                 </>
             }

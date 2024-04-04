@@ -7,19 +7,22 @@ export default function CustomInput({form,name, type, label}) {
         <FormField
             control={form.control}
             name={name}
-            render={({ field }) => (
-                <FormItem>
-
-                    <FormControl >
-                        <div className="relative">
-                            <Input type={type} className='input' {...field} />
-                            <FormLabel className='placeholder'>{label}</FormLabel>
-                        </div>
-
-                    </FormControl>
-                    <FormMessage />
-                </FormItem>
-            )}
+            render={({ field }) => {
+                // console.log(field)
+                return(
+                    <FormItem>
+    
+                        <FormControl >
+                            <div className="relative">
+                                <Input type={type} className='input' {...field} />
+                                <FormLabel className='placeholder'>{label}</FormLabel>
+                            </div>
+    
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )
+            }}
         />
     )
 }

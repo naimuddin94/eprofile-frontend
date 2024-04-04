@@ -7,7 +7,6 @@ const About = ({ title }) => {
   return (
     <div>
       <Header title={"About us"} />
-      <h1>hello</h1>
       <Container>
         <div className="w-full h-[60vh] flex flex-col lg:flex-row flex-wrap items-enter justify-center">
           <div className="w-[50%] h-full  bg-primary-foreground space-y-2">

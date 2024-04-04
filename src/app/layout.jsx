@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import BaseLayout from "@/layouts/BaseLayout";
 
-
+import { Toaster, toast } from 'sonner'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,8 +14,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BaseLayout child={children}/>
-        
+        <BaseLayout child={children} />
+        <Toaster toastOptions={{
+          classNames: {
+            error: 'bg-red-400',
+            success: 'text-green-400',
+            warning: 'text-yellow-400',
+            info: 'bg-blue-400',
+          },
+
+        }}
+         />
       </body>
     </html>
   );
