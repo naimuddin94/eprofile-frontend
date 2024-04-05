@@ -7,16 +7,16 @@ import { Instagram, Linkedin, LogoMark, Twitter, Youtube } from '@/assets/images
 import { ProfileHeader } from '../..'
 import { useProfileStore } from '@/store/userStore'
 
-export default function ContactInfo({setValue}) {
-    const { loading, profile, setProfile } = useProfileStore()
+export default function ContactInfo({setValue,profile, setProfile}) {
+    // const { loading, profile, setProfile } = useProfileStore()
     const [data, setData] = useState({
             street: '',
             house: '',
             city: '',
             state: '',
-            postal_code: '',
+            postalCode: '',
             country: '',
-            mobile_number: '',
+            mobileNumber: '',
             email: '',
             website: '',
             facebook: '',
@@ -39,7 +39,8 @@ export default function ContactInfo({setValue}) {
         setValue('objective')
     }
     const handleNext = () => {
-        console.log(data)
+        // console.log(data)
+        setProfile({...profile, contactInformation:data})
         setValue('education')
     }
 

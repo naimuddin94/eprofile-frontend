@@ -5,8 +5,8 @@ import GroupBtn from '../../share/GroupBtn'
 import { ProfileHeader } from '../..'
 import { useProfileStore } from '@/store/userStore'
 
-export default function Objective({ setValue }) {
-    const { loading, profile, setProfile } = useProfileStore()
+export default function Objective({ setValue,profile, setProfile }) {
+    // const { loading, profile, setProfile } = useProfileStore()
     const [data, setData] = useState('')
 
     const handlePrev = () => {

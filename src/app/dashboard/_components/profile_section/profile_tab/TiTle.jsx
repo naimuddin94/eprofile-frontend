@@ -8,8 +8,9 @@ import { ProfileHeader } from '../..'
 import { useProfileStore } from '@/store/userStore'
 
 
-export default function TiTle({ setValue }) {
-    const {loading, profile, setProfile}= useProfileStore()
+
+export default function TiTle({ setValue, profile, setProfile}) {
+    // const {loading, profile, setProfile}= useProfileStore()
     const [data, setData] = useState([{
         name: '',
         designation: "",
@@ -45,7 +46,8 @@ export default function TiTle({ setValue }) {
     }
     const handleNext = ()=>{
         // console.log(data)
-        setProfile({...profile,title:data})
+
+        setProfile({...profile, title: data})
         setValue('objective')
     }
 

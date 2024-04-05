@@ -1,24 +1,26 @@
-import React, { Suspense } from 'react'
+'use client'
+import React, { Suspense, useState } from 'react'
 import { ContactInfo, Education, Goals, Hobbies, Languages, Loading, Member, Name, Objective, Projects, Publications, Skills,  Testimonials, Title, Volunteer, WorkExperience } from '..'
 
 export default function ProfileTabContents({value, setValue}) {
+    const [profile,setProfile] =  useState({})
     return (
         <div>
-            {value === 'name' && <Name setValue={setValue} />}
-            {value === 'title' && <Title setValue={setValue} />}
-            {value === 'objective' && <Objective setValue={setValue} />}
-            {value === 'contact' && <ContactInfo setValue={setValue} />}
-            {value === 'education' && <Education setValue={setValue} />}
-            {value === 'work' && <WorkExperience setValue={setValue} />}
-            {value === 'skills' && <Skills setValue={setValue} />}
-            {value === 'member' && <Member setValue={setValue} />}
-            {value === 'languages' && <Languages setValue={setValue} />}
-            {value === 'volunteer' && <Volunteer setValue={setValue} />}
-            {value === 'projects' && <Projects setValue={setValue} />}
-            {value === 'publications' && <Publications setValue={setValue} />}
-            {value === 'testimonials' && <Testimonials setValue={setValue} />}
-            {value === 'hobbies' && <Hobbies setValue={setValue} />}
-            {value === 'goals' && <Goals setValue={setValue} />}
+            {value === 'name' && <Name setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'title' && <Title setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'objective' && <Objective setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'contact' && <ContactInfo setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'education' && <Education setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'work' && <WorkExperience setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'skills' && <Skills setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'member' && <Member setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'languages' && <Languages setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'volunteer' && <Volunteer setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'projects' && <Projects setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'publications' && <Publications setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'testimonials' && <Testimonials setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'hobbies' && <Hobbies setValue={setValue} setProfile={setProfile} profile={profile}/>}
+            {value === 'goals' && <Goals setValue={setValue} setProfile={setProfile} profile={profile}/>}
         </div>
     )
 }

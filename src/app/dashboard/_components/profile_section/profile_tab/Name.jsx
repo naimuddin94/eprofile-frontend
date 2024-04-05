@@ -8,10 +8,10 @@ import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
 import { useProfileStore } from '@/store/userStore'
 
-export default function Name({setValue}) {
-    const {loading, profile, setProfile}= useProfileStore()
+export default function Name({setValue,setProfile, profile}) {
+    // const {loading, profile, setProfile}= useProfileStore()
     const [data, setData] = useState({
-        fullname: '',
+        fullname: 'sdghdsjdsfdfhdsjf',
         bannerImg: null,
         profileImg: null
     })
@@ -43,18 +43,18 @@ export default function Name({setValue}) {
     }
 
     
-
     const handleUpdate = ()=>{
         // if(!data.fullname || !data.bannerImg || !data.profileImg){
         //     // setValue('title')
         //     return
         // }
-        setProfile({...data})
+        setProfile({...profile,...data})
         // console.log(data);
         setValue('title')
     }
+
     useEffect(()=>{
-        console.log(profile);
+        console.log(profile)
     },[profile])
     return (
         <div>
@@ -82,7 +82,7 @@ export default function Name({setValue}) {
 
             {/* input section */}
             <div className='mb-10 mt-20  '>
-                <ProfileInput type={'text'} label={'Full Name'} isStar={true} style={'profileInput h-12'} change={(e)=>setData({...data, fullname: e.target.value})}/>
+                <ProfileInput type={'text'} label={'Full Name'}  isStar={true} style={'profileInput h-12'} change={(e)=>setData({...data, fullname: e.target.value})}/>
 
 
                 {/* <p>{JSON.stringify(data)}</p> */}
