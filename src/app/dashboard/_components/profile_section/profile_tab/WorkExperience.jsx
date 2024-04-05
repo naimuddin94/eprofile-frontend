@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react'
 import GroupBtn from '../../share/GroupBtn'
 import ProfileInput from '../../share/ProfileInput'
