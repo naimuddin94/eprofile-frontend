@@ -1,9 +1,8 @@
 "use client"
-
+import React from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import React from 'react'
 import { Form } from '../ui/form'
 import CustomInput from '../share/CustomInput'
 import CustomBtn from '../share/CustomBtn'
@@ -11,8 +10,10 @@ import Link from "next/link"
 
 import { api } from "@/api"
 import { toast } from "sonner"
-import { useLoginStore } from "@/store/userStore"
-import { redirect, useRouter } from "next/navigation"
+
+import {  useRouter } from "next/navigation"
+import { useAuthStore } from '@/store/userStore'
+
 
 
 
@@ -27,8 +28,8 @@ const formSchema = z.object({
     }),
 })
 
-export default function SignIn() {
-    const { setLoging } = useLoginStore(state=> state)
+export default function SignIn() { 
+    const { setLogin}=useAuthStore()
     const router = useRouter()
     // 1. Define your form.
     const form = useForm({
@@ -41,25 +42,7 @@ export default function SignIn() {
 
     // 2. Define a submit handler.
     function onSubmit(values) {
-        api.post('/auth/login', values)
-            .then(res => {
-                // console.log(res.data.message)
-                toast.success(res.data.message, {
-                    action: {
-                        label: 'X',
-                        onClick: () => console.log('Undo')
-                    },
-                })
-                 router.push('/dashboard/profile')
-                setLoging()
-            }).catch(error => {
-                toast.success(error, {
-                    action: {
-                        label: 'X',
-                        onClick: () => console.log('X')
-                    },
-                })
-            })
+        setLogin(values, router)
     }
     // console.log(isLogin)
     return (

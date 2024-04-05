@@ -1,8 +1,11 @@
+'use client'
 import React from 'react'
 import CustomBtn from './CustomBtn'
 import { User } from 'lucide-react'
+import { useAuthStore } from '@/store/userStore'
 
-export default function LoginBtn({isLogin,logout}) {
+export default function LoginBtn() {
+  const {isLogin, logout} = useAuthStore()
   return (
     <>
     {isLogin?

@@ -93,11 +93,11 @@ export default function Footer() {
                     <p>&copy; 2024 eProfiles</p>
 
                     <div className='flex gap-3 justify-center'>
-                        <Image src={Visa} alt='visa' width={40} height={10} />
-                        <Image src={Master} alt='visa' width={40} height={20} />
-                        <Image src={American} alt='visa' width={40} height={20} />
-                        <Image src={Payoneer} alt='visa' width={40} height={20} />
-                        <Image src={Stripe} alt='visa' width={40} height={20} />
+                        <Image src={Visa} alt='visa1' width={40} height={10} />
+                        <Image src={Master} alt='visa2' width={40} height={20} />
+                        <Image src={American} alt='visa3' width={40} height={20} />
+                        <Image src={Payoneer} alt='visa4' width={40} height={20} />
+                        <Image src={Stripe} alt='visa5' width={40} height={20} />
                     </div>
                     <div className='flex gap-1'>
                         <Link href='#'>Terms & conditions</Link>

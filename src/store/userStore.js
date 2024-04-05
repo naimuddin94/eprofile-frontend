@@ -1,9 +1,11 @@
 import { api } from "@/api";
 import { apiUrl } from "@/lib/routes";
 import axios from "axios";
+import { Immer } from "immer";
 import { toast } from "sonner";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
 
 const initial = {
     error: null,
@@ -32,16 +34,16 @@ const KEY = "isLogin";
 
 export const getInitialLoggedIn = () => {
     if (typeof window !== "undefined") {
-        return localStorage.getItem(KEY) ;
+        return localStorage.getItem(KEY);
     } else {
         return null;
     }
 };
-export const useLoginStore = create((set) => ({
+export const useLoginStore = create(devtools((set) => ({
     ...initial,
-    isLogin: getInitialLoggedIn()|| false,
+    isLogin: getInitialLoggedIn() || false,
     user: null,
-    setLoging: (values) => {
+    setLoging: async () => {
         set(() => ({ loading: true }))
         localStorage.setItem(KEY, true);
         set((state) => {
@@ -56,7 +58,42 @@ export const useLoginStore = create((set) => ({
         })
     }
 
-}))
+})))
+
+export const useAuthStore = create(immer((set) => ({
+    loading: false,
+    error: null,
+    isLogin: getInitialLoggedIn() || false,
+    user: null,
+    setLogin: async (values, router) => {
+        set((state) => { state.loading = true })
+        try {
+            const res = await api.post('/auth/login', values)
+            if (res.status === 200) {
+                localStorage.setItem(KEY, true);
+                set(state => {
+                    state.isLogin = true,
+                        state.error = null
+                    state.loading = false
+                })
+                router.push('/dashboard/profile')
+            }
+
+        } catch (error) {
+            set(state => {
+                state.loading = false
+                state.error = error
+
+            })
+        }
+    },
+    logout: async () => {
+        set((state) => {
+            localStorage.removeItem(KEY);
+            state.isLogin = false;
+        })
+    }
+})))
 
 export const useProfileStore = create(devtools((set) => ({
     ...initial,

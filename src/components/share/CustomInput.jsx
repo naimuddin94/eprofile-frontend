@@ -14,7 +14,7 @@ export default function CustomInput({form,name, type, label}) {
     
                         <FormControl >
                             <div className="relative">
-                                <Input type={type} className='input' {...field} />
+                                <Input type={type} className='input' value={name || ''} {...field} />
                                 <FormLabel className='placeholder'>{label}</FormLabel>
                             </div>
     

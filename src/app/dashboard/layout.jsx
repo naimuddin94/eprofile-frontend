@@ -1,6 +1,8 @@
 'use client'
 import SideBar from "@/app/dashboard/_components/share/SideBar";
-import { redirect } from "next/navigation";
+import { useAuthStore } from "@/store/userStore";
+import { useRouter } from "next/navigation";
+
 
 import { useEffect } from "react";
 
@@ -10,12 +12,13 @@ import { useEffect } from "react";
 
 
 const Layout = ({ children }) => {
+  const {isLogin} = useAuthStore()
+  const router = useRouter()
   useEffect(() => {
-    const isLogin = window.localStorage.getItem('isLogin')
     if (!isLogin) {
-      redirect('/')
+      router.push('/')
     }
-  }, [])
+  }, [isLogin])
 
 
 

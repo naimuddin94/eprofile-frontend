@@ -5,13 +5,11 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { AlignJustify, User } from 'lucide-react'
 
-import { useLoginStore } from '@/store/userStore'
-
 import dynamic from 'next/dynamic'
  
 const LoginBtn = dynamic(() => import('./LoginBtn'), { ssr: false })
 
-export default function Navbar({ logout, isLogin }) {
+export default function Navbar() {
     return (
         <div className='border-b-[1px]'>
             <div className='w-[90%] mx-auto flex  justify-between items-center py-3 '>
@@ -25,7 +23,7 @@ export default function Navbar({ logout, isLogin }) {
                         <li><Link href='/services'>Services</Link></li>
                         <li><Link href='/press'>Press</Link></li>
                     </ul>
-                    <LoginBtn isLogin={isLogin} logout={logout}/>
+                    <LoginBtn />
 
                 </div>
                 <div className='md:hidden block'>
