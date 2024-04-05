@@ -76,6 +76,12 @@ export const useAuthStore = create(immer((set) => ({
                         state.error = null
                     state.loading = false
                 })
+                toast.success(res.data.message, {
+                    action: {
+                        label: 'X',
+                        onClick: () => console.log('Undo')
+                    },
+                })
                 router.push('/dashboard/profile')
             }
 
