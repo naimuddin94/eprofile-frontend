@@ -3,7 +3,7 @@ import { CompanyHistory, CompanyIntro, CompanyLocation, CompanyName, CompanyProd
 
 export default function CompanyTabContents({ value, setValue }) {
     return (
-        <Suspense fallback={<Loading/>}>
+        <div>
             {value === 'name' && <CompanyName setValue={setValue} />}
             {value === 'intro' && <CompanyIntro setValue={setValue} />}
             {value === 'mission' && <MissionStatement setValue={setValue} />}
@@ -19,6 +19,6 @@ export default function CompanyTabContents({ value, setValue }) {
             {value === 'responsibility' && <Responsibility setValue={setValue} />}
             {value === 'goals' && <CompanyGoals setValue={setValue} />}
             {value === 'contact' && <CompanyContact setValue={setValue} />}
-        </Suspense>
+        </div>
     )
 }

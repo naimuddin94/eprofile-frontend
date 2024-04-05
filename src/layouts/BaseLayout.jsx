@@ -11,20 +11,20 @@ import Navbar from '@/components/share/Navbar'
 export default function BaseLayout({ child }) {
     const path = usePathname()
     return (
-        <section>
+        <div suppressHydrationWarning={true}>
 
             {path === '/sign-in' ||
                 path === '/sign-up' ||
                 path === '/forgot-password' ||
                 path === '/reset-password' ?
                 <AuthLayout child={child} path={path} /> :
-                <>
+                <div>
                     <Navbar  />
                     {child}
 
                     <Footer/>
-                </>
+                </div>
             }
-        </section>
+        </div>
     )
 }

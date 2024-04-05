@@ -20,13 +20,13 @@ export default function ProfilePage() {
     
   }, [value])
   return (
-    <section className='md:w-[95%]  w-full md:mx-auto py-10 md:flex '>
+    <div className='md:w-[95%]  w-full md:mx-auto py-10 md:flex '>
       <TabLists data={tabList} value={value} setValue={setValue} />
       <div className='2xl:w-[70%] md:w-[63%] w-[95%]  mx-auto flex justify-end'>
         <div className='md:w-[95%] w-full  '>
           <ProfileTabContents value={value} setValue={setValue} />
         </div>
       </div>
-    </section>
+    </div>
   )
 }

@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function AuthLayout({child, path}) {
     return (
-        <section className={`bg-background    relative z-0`}>
+        <div className={`bg-background    relative z-0`}>
 
             <Image src={Blob1} alt="blob1" width={250} height={100} className="absolute bottom-0 left-0 -z-10" />
 
@@ -16,6 +16,6 @@ export default function AuthLayout({child, path}) {
             <div className=' '>
                 {child}
             </div>
-        </section>
+        </div>
     )
 }

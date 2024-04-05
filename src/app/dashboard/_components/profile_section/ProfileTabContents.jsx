@@ -3,7 +3,7 @@ import { ContactInfo, Education, Goals, Hobbies, Languages, Loading, Member, Nam
 
 export default function ProfileTabContents({value, setValue}) {
     return (
-        <Suspense fallback={<Loading/>}>
+        <div>
             {value === 'name' && <Name setValue={setValue} />}
             {value === 'title' && <Title setValue={setValue} />}
             {value === 'objective' && <Objective setValue={setValue} />}
@@ -19,6 +19,6 @@ export default function ProfileTabContents({value, setValue}) {
             {value === 'testimonials' && <Testimonials setValue={setValue} />}
             {value === 'hobbies' && <Hobbies setValue={setValue} />}
             {value === 'goals' && <Goals setValue={setValue} />}
-        </Suspense>
+        </div>
     )
 }

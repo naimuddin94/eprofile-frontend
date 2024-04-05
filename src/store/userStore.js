@@ -82,7 +82,7 @@ export const useAuthStore = create(immer((set) => ({
                         onClick: () => console.log('Undo')
                     },
                 })
-                router.push('/dashboard/profile')
+                router.push('/dashboard')
             }
 
         } catch (error) {
@@ -105,6 +105,7 @@ export const useProfileStore = create(devtools((set) => ({
     ...initial,
     profile: {},
     setProfile: (values) => {
+        console.log(values)
         set((state) => { state.loading = true })
         try {
             set((state) => ({

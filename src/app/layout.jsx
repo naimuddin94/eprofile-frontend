@@ -12,19 +12,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <BaseLayout child={children} />
-        <Toaster toastOptions={{
-          classNames: {
-            error: 'bg-red-400',
-            success: 'text-green-400',
-            warning: 'text-yellow-400',
-            info: 'bg-blue-400',
-          },
 
-        }}
-         />
+          <BaseLayout child={children} />
+          <Toaster toastOptions={{
+            classNames: {
+              error: 'bg-red-400',
+              success: 'text-green-400',
+              warning: 'text-yellow-400',
+              info: 'bg-blue-400',
+            },
+
+          }}
+          />
       </body>
     </html>
   );

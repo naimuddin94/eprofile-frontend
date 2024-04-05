@@ -52,7 +52,7 @@ export default function CompanyName({setValue}) {
         setValue('intro')
     }
     return (
-        <section>
+        <div>
             {/* image section */}
             <div className='relative'>
                 <div className='md:h-[35vh] h-[25vh] w-full bg-slate-300 rounded-xl relative'>
@@ -88,6 +88,6 @@ export default function CompanyName({setValue}) {
                     <CustomBtn style={'w-min'} title={'Save & Next'} click={handleUpdate} />
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

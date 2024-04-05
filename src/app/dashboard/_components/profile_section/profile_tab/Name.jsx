@@ -57,7 +57,7 @@ export default function Name({setValue}) {
         console.log(profile);
     },[profile])
     return (
-        <section>
+        <div>
             {/* image section */}
             <div className='relative'>
                 <div className='md:h-[35vh] h-[25vh] w-full bg-slate-300 rounded-xl relative'>
@@ -90,6 +90,6 @@ export default function Name({setValue}) {
                     <CustomBtn style={'w-min'}  title={'Save & Next'} click={handleUpdate}/>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
