@@ -48,6 +48,9 @@ export const useAuthStore = create(immer((set) => ({
     setLogin:  (data) => {
         // set(state=> {state.loading = true})
         localStorage.setItem('user', JSON.stringify(data))
+        set((state) => {
+            state.user = data;
+        })
     },
     logout:  () => {
         set((state) => {
