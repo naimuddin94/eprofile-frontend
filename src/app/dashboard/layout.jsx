@@ -1,25 +1,25 @@
 'use client'
 
 import { useAuthStore } from "@/store/userStore"
-// import ProtectedRoute from "@/components/auth/ProtectedRoute"
+import ProtectedRoute from "@/components/auth/ProtectedRoute"
 import SideBar from "./_components/share/SideBar"
 import { useRouter } from "next/navigation"
 import { Suspense, useEffect } from "react"
 
 
 const Layout = ({ children }) => {
-  const { user } = useAuthStore()
-  const router = useRouter()
-  useEffect(() => {
-    if (!user) {
-      if (!user) {
-        router.push('/')
-      }
-    }
-  }, [user, router])
+  // const { user } = useAuthStore()
+  // const router = useRouter()
+  // useEffect(() => {
+  //   if (!user) {
+  //     if (!user) {
+  //       router.push('/')
+  //     }
+  //   }
+  // }, [user, router])
 
   return (
-    // <ProtectedRoute>
+    <ProtectedRoute>
     <Suspense fallback={<p>Loading</p>}>
       <div className='flex ' suppressHydrationWarning={true}>
         <SideBar />
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
     </Suspense>
-    //  </ProtectedRoute>
+    </ProtectedRoute>
 
   )
 
