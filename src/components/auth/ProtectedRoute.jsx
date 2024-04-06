@@ -4,14 +4,14 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 
 export default function ProtectedRoute({ children }) {
-    const { isLogin } = useAuthStore();
+    const { user } = useAuthStore();
     const router = useRouter();
   
     useEffect(() => {
-      if (!isLogin) {
+      if (!user) {
         router.push('/login'); // Redirect to login on unauthorized access
       }
-    }, [isLogin, router]);
+    }, [user, router]);
   
-    return isLogin ? children : null; // Render content only if logged in
+    return user ? children : null; // Render content only if logged in
   }

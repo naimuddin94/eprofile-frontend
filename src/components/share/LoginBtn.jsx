@@ -5,10 +5,11 @@ import { User } from 'lucide-react'
 import { useAuthStore } from '@/store/userStore'
 
 export default function LoginBtn() {
-  const {isLogin, logout} = useAuthStore()
+  const {user, logout} = useAuthStore()
+  console.log(user)
   return (
     <>
-    {isLogin?
+    {user?
     <CustomBtn style={'flex gap-2'} title={'Logout'}  click={() => {
         logout()
         window.location.href = '/'

@@ -13,6 +13,7 @@ import { toast } from "sonner"
 
 import {  useRouter } from "next/navigation"
 import { useAuthStore } from '@/store/userStore'
+import { axiosBase } from '@/hooks/axiosSecure'
 
 
 
@@ -41,8 +42,24 @@ export default function SignIn() {
     })
 
     // 2. Define a submit handler.
-    function onSubmit(values) {
-        setLogin(values, router)
+    async function  onSubmit(values) {
+
+        try {
+            const res = await axiosBase.post('/auth/login', values)
+            if(res.data.statusCode === 200){
+                
+                setLogin(res.data.data)
+                toast.success(res.data.message, {
+                    action: {
+                        label: 'X',
+                        onClick: () => console.log('Undo')
+                    },
+                })
+                router.push('/dashboard')
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
     // console.log(isLogin)
     return (

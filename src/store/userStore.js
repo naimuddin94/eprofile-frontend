@@ -32,71 +32,31 @@ export const useUserStore = create((set) => ({
 
 const KEY = "isLogin";
 
-export const getInitialLoggedIn = () => {
+export const getUser = () => {
     if (typeof window !== "undefined") {
-        return localStorage.getItem(KEY);
+        return localStorage.getItem('user') || null;
     } else {
         return null;
     }
 };
-export const useLoginStore = create(devtools((set) => ({
-    ...initial,
-    isLogin: getInitialLoggedIn() || false,
-    user: null,
-    setLoging: async () => {
-        set(() => ({ loading: true }))
-        localStorage.setItem(KEY, true);
-        set((state) => {
-            state.isLogin = true;
-            state.loading = false
-        });
-    },
-    logout: async () => {
-        set((state) => {
-            localStorage.removeItem(KEY);
-            state.isLogin = false;
-        })
-    }
-
-})))
 
 export const useAuthStore = create(immer((set) => ({
-    loading: false,
+
     error: null,
-    isLogin: getInitialLoggedIn() || false,
-    user: null,
-    setLogin: async (values, router) => {
-        set((state) => { state.loading = true })
-        try {
-            const res = await api.post('/auth/login', values)
-            if (res.status === 200) {
-                localStorage.setItem(KEY, true);
-                set(state => {
-                    state.isLogin = true,
-                        state.error = null
-                    state.loading = false
-                })
-                toast.success(res.data.message, {
-                    action: {
-                        label: 'X',
-                        onClick: () => console.log('Undo')
-                    },
-                })
-                router.push('/dashboard')
-            }
+    user: getUser(),
 
-        } catch (error) {
-            set(state => {
-                state.loading = false
-                state.error = error
-
-            })
-        }
+    setLogin:  (data) => {
+        // set(state=> {state.loading = true})
+        localStorage.setItem('user', JSON.stringify(data))
+        set((state)=>{
+            state.user = data
+            // state.loading = false
+        })
     },
-    logout: async () => {
+    logout:  () => {
         set((state) => {
-            localStorage.removeItem(KEY);
-            state.isLogin = false;
+            localStorage.removeItem('user');
+            state.user = null;
         })
     }
 })))

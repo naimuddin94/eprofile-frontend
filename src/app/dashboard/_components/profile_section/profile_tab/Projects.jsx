@@ -14,7 +14,7 @@ export default function Projects({ setValue,profile, setProfile }) {
         projectName: '',
         link: '',
         projectDescription: '',
-        files: null,
+        projectPhoto: null,
         portfolioLink: ''
     })
 
@@ -23,10 +23,10 @@ export default function Projects({ setValue,profile, setProfile }) {
         imgRef.current.click();
     }
     const handleImgCng = (e) => {
-        const file = e.target.files[0];
+        const file = e.target.projectPhoto[0];
         setData({
             ...data,
-            files:  file
+            projectPhoto:  file
         })
 
     }
@@ -57,14 +57,14 @@ export default function Projects({ setValue,profile, setProfile }) {
                     <Label>Upload your file</Label>
                     <div className='flex gap-3 flex-wrap mt-4'>
                         <div onClick={handleImgClk} className='border-[2px]  center flex-col gap-1 w-[200px] p-4 rounded-lg border-dashed bg-pLight border-primary'>
-                            <input type="file" name="picture" defaultValue={data.files} className='hidden' ref={imgRef} onChange={handleImgCng} />
+                            <input type="file" name="picture" defaultValue={data.projectPhoto} className='hidden' ref={imgRef} onChange={handleImgCng} />
                             <CloudDownload size={30} />
                             <p className='text-center text-sm'>drag and drop your file
                                 or</p>
                             <CustomBtn style={'w-min text-sm font-bold p-1 h-min'} title={'browse file'} />
                         </div>
-                        {data?.files && <div className='w-[200px] h-[200px] rounded-lg'>
-                            <Image src={URL.createObjectURL(data.files)} alt='' width={100} height={100} className='w-full h-full object-cover rounded-lg'/>
+                        {data?.projectPhoto && <div className='w-[200px] h-[200px] rounded-lg'>
+                            <Image src={URL.createObjectURL(data.projectPhoto)} alt='' width={100} height={100} className='w-full h-full object-cover rounded-lg'/>
                         </div>}
                     </div>
 

@@ -3,14 +3,14 @@
 import { tabList } from '@/lib/data'
 import React, { Suspense, useEffect, useState } from 'react'
 import { Loading, ProfileTabContents, TabLists } from '../_components'
-// import { redirect, useSearchParams } from 'next/navigation'
-// export const dynamic = 'force-dynamic'
+import { redirect, useSearchParams } from 'next/navigation'
+export const dynamic = 'force-dynamic'
 
 
 export default function ProfilePage() {
-  // let search = useSearchParams()
-  // search = search.get('tab') || null
-  const [value, setValue] = useState('name')
+  let search = useSearchParams()
+  search = search.get('tab') || null
+  const [value, setValue] = useState(search||'name')
   useEffect(() => {
     window.history.pushState(
       null,
