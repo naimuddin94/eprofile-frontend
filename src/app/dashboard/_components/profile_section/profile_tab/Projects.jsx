@@ -23,7 +23,7 @@ export default function Projects({ setValue,profile, setProfile }) {
         imgRef.current.click();
     }
     const handleImgCng = (e) => {
-        const file = e.target.projectPhoto[0];
+        const file = e.target.files[0];
         setData({
             ...data,
             projectPhoto:  file

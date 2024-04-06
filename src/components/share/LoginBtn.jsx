@@ -6,7 +6,7 @@ import { useAuthStore } from '@/store/userStore'
 
 export default function LoginBtn() {
   const {user, logout} = useAuthStore()
-  console.log(user)
+  // console.log(user)
   return (
     <>
     {user?

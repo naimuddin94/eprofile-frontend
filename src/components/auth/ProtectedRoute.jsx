@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }) {
     },[])
     useEffect(() => {
       if (!user) {
-        router.push('/login'); // Redirect to login on unauthorized access
+        router.push('/sign-in'); // Redirect to login on unauthorized access
       }
     }, [user, router]);
   

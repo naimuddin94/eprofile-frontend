@@ -1,9 +1,10 @@
 'use client'
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import { ContactInfo, Education, Goals, Hobbies, Languages, Loading, Member, Name, Objective, Projects, Publications, Skills,  Testimonials, Title, Volunteer, WorkExperience } from '..'
 
 export default function ProfileTabContents({value, setValue}) {
     const [profile,setProfile] =  useState({})
+    
     return (
         <div>
             {value === 'name' && <Name setValue={setValue} setProfile={setProfile} profile={profile}/>}
