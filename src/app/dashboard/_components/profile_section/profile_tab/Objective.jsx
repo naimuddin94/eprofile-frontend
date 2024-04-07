@@ -5,7 +5,7 @@ import GroupBtn from '../../share/GroupBtn'
 import { ProfileHeader } from '../..'
 import { useProfileStore } from '@/store/userStore'
 
-export default function Objective({ setValue,profile, setProfile }) {
+export default function Objective({ setValue,profile, setProfile, formData }) {
     // const { loading, profile, setProfile } = useProfileStore()
     const [data, setData] = useState('')
 
@@ -14,6 +14,7 @@ export default function Objective({ setValue,profile, setProfile }) {
     }
     const handleNext =() => {
         // console.log(data)
+        // formData.append('objective', data)
         setProfile({...profile, objective: data})
         setValue('contact')
     }

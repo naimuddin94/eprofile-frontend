@@ -7,7 +7,7 @@ import { Instagram, Linkedin, LogoMark, Twitter, Youtube } from '@/assets/images
 import { ProfileHeader } from '../..'
 import { useProfileStore } from '@/store/userStore'
 
-export default function ContactInfo({setValue,profile, setProfile}) {
+export default function ContactInfo({setValue,profile, setProfile, formData}) {
     // const { loading, profile, setProfile } = useProfileStore()
     const [data, setData] = useState({
             street: '',
@@ -30,7 +30,6 @@ export default function ContactInfo({setValue,profile, setProfile}) {
         const { name, value } = e.target;
         const onChange = { ...data };
         onChange[name] = value
-        
         setData(onChange)
     }
 
@@ -40,6 +39,7 @@ export default function ContactInfo({setValue,profile, setProfile}) {
     }
     const handleNext = () => {
         // console.log(data)
+        // formData.append('contactInformation', JSON.stringify(data))
         setProfile({...profile, contactInformation:data})
         setValue('education')
     }
@@ -62,11 +62,11 @@ export default function ContactInfo({setValue,profile, setProfile}) {
                         <ProfileInput type={'text'} label={'State'} name={'state'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <div className='doubleInput'>
-                        <ProfileInput type={'text'} label={'Postal Code'} name={'postal_code'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'Postal Code'} name={'postalCode'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                         <ProfileInput type={'text'} label={'Country'} name={'country'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <div className='doubleInput'>
-                        <ProfileInput type={'number'} label={'Mobile Number'} name={'mobile_number'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'number'} label={'Mobile Number'} name={'mobileNumber'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                         <ProfileInput type={'email'} label={'Email'} name={'email'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <ProfileInput type={'text'} label={'Website'} name={'website'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />

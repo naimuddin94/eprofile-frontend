@@ -14,7 +14,7 @@ export default function Projects({ setValue,profile, setProfile }) {
         projectName: '',
         link: '',
         projectDescription: '',
-        projectPhoto: null,
+        // projectPhoto: null,
         portfolioLink: ''
     })
 
@@ -40,7 +40,7 @@ export default function Projects({ setValue,profile, setProfile }) {
         setValue('volunteer')
     }
     const handleNext = () => {
-        setProfile({...profile,project: [data]})
+        setProfile({...profile,project: data})
         setValue('publications')
     }
     useEffect(() => {

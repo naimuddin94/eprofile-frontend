@@ -6,7 +6,7 @@ import ProfileInput from '../../share/ProfileInput'
 import { ProfileHeader } from '../..'
 
 
-export default function Education({ setValue, profile, setProfile }) {
+export default function Education({ setValue, profile, setProfile, formData }) {
     const [data, setData] = useState([{
             instituteName: '',
             cgpa: '',
@@ -40,6 +40,7 @@ export default function Education({ setValue, profile, setProfile }) {
         setValue('contact')
     }
     const handleNext = () => {
+        // formData.append('education', JSON.stringify(data))
         setProfile({...profile, education: data})
         setValue('work')
     }

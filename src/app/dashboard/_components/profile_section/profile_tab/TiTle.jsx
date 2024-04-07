@@ -9,7 +9,7 @@ import { useProfileStore } from '@/store/userStore'
 
 
 
-export default function TiTle({ setValue, profile, setProfile}) {
+export default function TiTle({ setValue, profile, setProfile, formData}) {
     // const {loading, profile, setProfile}= useProfileStore()
     const [data, setData] = useState([{
         name: '',
@@ -46,7 +46,7 @@ export default function TiTle({ setValue, profile, setProfile}) {
     }
     const handleNext = ()=>{
         // console.log(data)
-
+        // formData.append('title', JSON.stringify(data))
         setProfile({...profile, title: data})
         setValue('objective')
     }
