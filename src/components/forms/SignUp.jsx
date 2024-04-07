@@ -118,7 +118,7 @@ export default function SignUp() {
                 <CustomSelect form={form} name={'country'} label={'Country'} items={countries} />
                 <CustomInput form={form} name={'password'} type={'password'} label={'Password'} />
                 <CustomInput form={form} name={'confirm'} type={'password'} label={'Confirm Password'} />
-                <CustomBtn title={'Sign In'} style={'h-12 w-full'} loading={loading} />
+                <CustomBtn title={'Sign Up'} style={'h-12 w-full'} loading={loading} />
             </form>
         </Form>
     )
