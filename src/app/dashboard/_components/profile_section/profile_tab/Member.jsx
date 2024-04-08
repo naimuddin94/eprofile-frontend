@@ -5,7 +5,8 @@ import ProfileInput from '../../share/ProfileInput'
 import { ProfileHeader } from '../..'
 
 export default function Member({setValue, setProfile, profile}) {
-    const [data, setData] = useState('')
+    // profile?.skills || 
+    const [data, setData] = useState(profile?.professionalMemberships || '')
 
     const handlePrev = () => {
         setValue('skills')
@@ -21,7 +22,7 @@ export default function Member({setValue, setProfile, profile}) {
         <div>
             <ProfileHeader title={'Professional Memberships or Affiliations'} />
             <div className='mb-10'>
-                <ProfileInput type={'text'} label={'Member'} isStar={false} style={'profileInput h-12'} change={(e) => setData(e.target.value)} />
+                <ProfileInput type={'text'} label={'Member'} value={data} isStar={false} style={'profileInput h-12'} change={(e) => setData(e.target.value)} />
             </div>
 
             <GroupBtn handlePrev={handlePrev} handleNext={handleNext} />

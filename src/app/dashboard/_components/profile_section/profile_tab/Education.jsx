@@ -6,8 +6,9 @@ import ProfileInput from '../../share/ProfileInput'
 import { ProfileHeader } from '../..'
 
 
-export default function Education({ setValue, profile, setProfile, formData }) {
-    const [data, setData] = useState([{
+export default function Education({ setValue, profile, setProfile }) {
+    // profile?.education || 
+    const [data, setData] = useState(profile?.education || [{
             instituteName: '',
             cgpa: '',
             passingYear: '',

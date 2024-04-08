@@ -21,7 +21,8 @@ const items =[
 ]
 
 export default function Skills({setValue, profile, setProfile}) {
-    const [data, setData] = useState([{
+    // profile?.skills || 
+    const [data, setData] = useState(profile?.skills || [{
         name: '',
         category: ''
     }])
@@ -61,10 +62,10 @@ export default function Skills({setValue, profile, setProfile}) {
             {data.map((val, i) => <div key={i} className='space-y-4 mb-5 border-[1px] border-gray-300 px-5 py-10 rounded-lg relative'>
                 <div className='flex gap-5'>
                     <div className='w-[60%]'>
-                        <ProfileInput type={'text'} name={'name'} value={data.name} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
+                        <ProfileInput type={'text'} name={'name'} value={val.name} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                     </div>
                     <div className='w-[40%]'>
-                        <ProfileSelect label={'Category'} name={'category'}  value={data.category} items={items} change={(e) => handleChange(e, i)} />
+                        <ProfileSelect label={'Category'} name={'category'}  value={val.category} items={items} change={(e) => handleChange(e, i)} />
                     </div>
                 </div>
                 <CustomBtn style={'p-0 w-8 rounded-full h-8 absolute -top-2 right-2'} title={'X'} click={()=>handleDelete(i)} />

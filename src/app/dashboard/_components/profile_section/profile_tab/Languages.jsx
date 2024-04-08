@@ -25,7 +25,8 @@ const items = [
 ]
 
 export default function Languages({ setValue, profile, setProfile }) {
-    const [data, setData] = React.useState([{
+    // profile?.language || 
+    const [data, setData] = React.useState( profile?.language || [{
         name: '',
         variant: ''
     }])
@@ -64,10 +65,10 @@ export default function Languages({ setValue, profile, setProfile }) {
             {data.map((val, i) => <div key={i} className='space-y-4 mb-5 border-[1px] border-gray-300 px-5 py-10 rounded-lg relative'>
                 <div className='flex gap-5'>
                     <div className='w-[60%]'>
-                        <ProfileInput type={'text'} name={'name'} value={data.name} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
+                        <ProfileInput type={'text'} name={'name'} value={val.name} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                     </div>
                     <div className='w-[40%]'>
-                        <ProfileSelect label={'proficiency'} name={'variant'} value={data.variant} items={items} change={(e) => handleChange(e, i)} />
+                        <ProfileSelect label={'proficiency'} name={'variant'} value={val.variant} items={items} change={(e) => handleChange(e, i)} />
                     </div>
                 </div>
                 <CustomBtn style={'p-0 w-8 rounded-full h-8 absolute -top-2 right-2'} title={'X'} click={() => handleDelete(i)} />

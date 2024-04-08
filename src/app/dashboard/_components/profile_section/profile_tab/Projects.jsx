@@ -10,11 +10,12 @@ import { Input } from '@/components/ui/input'
 import Image from 'next/image'
 
 export default function Projects({ setValue,profile, setProfile }) {
-    const [data, setData] = useState({
+    // profile?.project || 
+    const [data, setData] = useState(profile?.project || {
         projectName: '',
         link: '',
         projectDescription: '',
-        // projectPhoto: null,
+        projectPhoto: null,
         portfolioLink: ''
     })
 
@@ -57,7 +58,7 @@ export default function Projects({ setValue,profile, setProfile }) {
                     <Label>Upload your file</Label>
                     <div className='flex gap-3 flex-wrap mt-4'>
                         <div onClick={handleImgClk} className='border-[2px]  center flex-col gap-1 w-[200px] p-4 rounded-lg border-dashed bg-pLight border-primary'>
-                            <input type="file" name="picture" defaultValue={data.projectPhoto} className='hidden' ref={imgRef} onChange={handleImgCng} />
+                            <input type="file" name="projectPhoto"  className='hidden' ref={imgRef} onChange={handleImgCng} />
                             <CloudDownload size={30} />
                             <p className='text-center text-sm'>drag and drop your file
                                 or</p>

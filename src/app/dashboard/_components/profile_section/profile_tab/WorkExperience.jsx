@@ -6,7 +6,8 @@ import { ProfileHeader } from '../..'
 import CustomBtn from '@/components/share/CustomBtn'
 
 export default function WorkExperience({ setValue, profile, setProfile }) {
-    const [data, setData] = React.useState([{
+    // profile?.experience ||
+    const [data, setData] = React.useState(profile?.experience || [{
         company: '',
         jobTitle: '',
         dateOfEmployment: '',

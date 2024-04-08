@@ -8,12 +8,14 @@ import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
 import { useProfileStore } from '@/store/userStore'
 
-export default function Name({ setValue, setProfile, profile, formData }) {
-    // const {loading, profile, setProfile}= useProfileStore()
+export default function Name({ setValue, setProfile, profile }) {
+    // console.log(profile)
+    // profile?.photo || profile?.photo
+
     const [data, setData] = useState({
-        fullName: '',
-        coverPhoto: null,
-        photo: null
+        fullName: profile?.fullName ||'',
+        coverPhoto: profile?.coverPhoto || null,
+        photo: profile?.photo || null
     })
     const [error, setError] = useState(null)
     // const [photo, setphoto] = useState(null)
@@ -45,18 +47,14 @@ export default function Name({ setValue, setProfile, profile, formData }) {
 
 
     const handleUpdate = () => {
-        
-
-
         setProfile({ ...profile, ...data })
         // console.log(data);
         setValue('title')
-
     }
 
-    useEffect(() => {
-        console.log(profile)
-    }, [profile])
+    // useEffect(() => {
+    //     // console.log(profile)
+    // }, [profile])
     return (
         <div>
             {/* image section */}
@@ -83,7 +81,7 @@ export default function Name({ setValue, setProfile, profile, formData }) {
 
             {/* input section */}
             <div className='mb-10 mt-20  '>
-                <ProfileInput type={'text'} label={'Full Name'} isStar={true} style={'profileInput h-12'} change={(e) => setData({ ...data, fullName: e.target.value })} />
+                <ProfileInput type={'text'} value={data?.fullName} label={'Full Name'} isStar={true} style={'profileInput h-12'} change={(e) => setData({ ...data, fullName: e.target.value })} />
 
 
                 {/* <p>{JSON.stringify(data)}</p> */}

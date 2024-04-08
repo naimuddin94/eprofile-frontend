@@ -9,7 +9,8 @@ import { useProfileStore } from '@/store/userStore'
 
 export default function ContactInfo({setValue,profile, setProfile, formData}) {
     // const { loading, profile, setProfile } = useProfileStore()
-    const [data, setData] = useState({
+    // profile?.contactInformation ||
+    const [data, setData] = useState(profile?.contactInformation || {
             street: '',
             house: '',
             city: '',
@@ -54,32 +55,32 @@ export default function ContactInfo({setValue,profile, setProfile, formData}) {
                 <h2 className='text-xl text-gray-400 font-bold mb-5'>Address</h2>
                 <div className='formGap'>
                     <div className='doubleInput'>
-                        <ProfileInput type={'text'} label={'Street'} name={'street'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
-                        <ProfileInput type={'text'} label={'House'} name={'house'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'Street'} value={data?.street} name={'street'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'House'} value={data?.house} name={'house'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <div className='doubleInput'>
-                        <ProfileInput type={'text'} label={'City'} name={'city'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
-                        <ProfileInput type={'text'} label={'State'} name={'state'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'City'} value={data?.city} name={'city'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'State'} value={data?.state} name={'state'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <div className='doubleInput'>
-                        <ProfileInput type={'text'} label={'Postal Code'} name={'postalCode'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
-                        <ProfileInput type={'text'} label={'Country'} name={'country'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'Postal Code'} value={data?.postalCode} name={'postalCode'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'text'} label={'Country'} value={data?.country} name={'country'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
                     <div className='doubleInput'>
-                        <ProfileInput type={'number'} label={'Mobile Number'} name={'mobileNumber'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
-                        <ProfileInput type={'email'} label={'Email'} name={'email'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'number'} label={'Mobile Number'} value={data?.mobileNumber} name={'mobileNumber'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                        <ProfileInput type={'email'} label={'Email'} name={'email'} value={data?.email} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                     </div>
-                    <ProfileInput type={'text'} label={'Website'} name={'website'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
+                    <ProfileInput type={'text'} label={'Website'} value={data?.website} name={'website'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, true)} />
                 </div>
             </div>
             <div className='mb-10'>
                 <h2 className='text-xl text-gray-400 font-bold mb-5'>Social Link</h2>
                 <div className='formGap'>
-                    <ProfileLinkInput image={LogoMark} name={'facebook'} change={(e) => handleChange(e, false)}/>
-                    <ProfileLinkInput image={Twitter} name={'twitter'} change={(e) => handleChange(e, false)}/>
-                    <ProfileLinkInput image={Linkedin} name={'linkedin'} change={(e) => handleChange(e, false)}/>
-                    <ProfileLinkInput image={Instagram} name={'instagram'} change={(e) => handleChange(e, false)}/>
-                    <ProfileLinkInput image={Youtube} name={'youtube'} change={(e) => handleChange(e, false)}/>
+                    <ProfileLinkInput image={LogoMark} value={data?.facebook} name={'facebook'} change={(e) => handleChange(e, false)}/>
+                    <ProfileLinkInput image={Twitter} value={data?.twitter} name={'twitter'} change={(e) => handleChange(e, false)}/>
+                    <ProfileLinkInput image={Linkedin} value={data?.linkedin} name={'linkedin'} change={(e) => handleChange(e, false)}/>
+                    <ProfileLinkInput image={Instagram} value={data?.instagram} name={'instagram'} change={(e) => handleChange(e, false)}/>
+                    <ProfileLinkInput image={Youtube} value={data?.youtube} name={'youtube'} change={(e) => handleChange(e, false)}/>
                 </div>
             </div>
 

@@ -5,11 +5,14 @@ import ProfileInput from '../../share/ProfileInput'
 import { ProfileHeader } from '../..'
 import { axiosBase } from '@/hooks/axiosSecure'
 import { jsonToFormData } from '@/lib/utils'
+import { toast } from "sonner"
+import { useProfileStore } from '@/store/userStore'
 
-export default function Goals({ setValue, profile, setProfile }) {
-    // const [data1, setData1] = useState(profile)
-    const [data, setData] = React.useState('')
-    const user = JSON.parse(localStorage.getItem('user'))
+export default function Goals({ setValue, profile, userId }) {
+    const {setProfile} = useProfileStore()
+
+    const [data, setData] = React.useState(profile?.careerGoals || '')
+    
 
     // console.log(user.id)
 
@@ -24,14 +27,24 @@ export default function Goals({ setValue, profile, setProfile }) {
                 "Content-Type": "multipart/form-data",
             },
         });
-        console.log(res);
+        if(res.data.statusCode === 200){
+            toast.success(res.data.message, {
+                action: {
+                    label: 'X',
+                    onClick: () => console.log('Undo')
+                },
+            })
+            setProfile(values)
+            setValue('name')
+        }
+        // console.log(res);
     };
 
     return (
         <div>
             <ProfileHeader title={'Career Goals or Aspirations'} />
             <div className='mb-10'>
-                <ProfileInput type={'text'} label={'Goals'} isStar={false} style={'profileInput h-12'} change={(e) => setData(e.target.value)} />
+                <ProfileInput type={'text'} label={'Goals'} value={data} isStar={false} style={'profileInput h-12'} change={(e) => setData(e.target.value)} />
             </div>
             <GroupBtn handlePrev={handlePrev} handleNext={handleNext} />
         </div>
