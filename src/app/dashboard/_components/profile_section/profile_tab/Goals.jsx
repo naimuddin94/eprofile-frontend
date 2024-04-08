@@ -20,7 +20,7 @@ export default function Goals({ setValue, profile, userId }) {
         setValue("hobbies");
     };
     const handleNext = async () => {
-        const values = { ...profile, careerGoals: data, createdBy: user?.id };
+        const values = { ...profile, careerGoals: data, createdBy: userId };
         const formData = jsonToFormData(values);
         const res = await axiosBase.post("/profile", formData, {
             headers: {
