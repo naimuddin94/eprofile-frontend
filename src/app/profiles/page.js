@@ -1,5 +1,7 @@
+"use client"
+
 import Container from "@/components/share/Container";
-import React from "react";
+import React,{useEffect} from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import user1 from "../../assets/profiles/user-1.png";
 import user2 from "../../assets/profiles/user-2.png";
@@ -10,8 +12,20 @@ import Image from "next/image";
 import { FaStar } from "react-icons/fa6";
 import Ratings from "@/components/Ratings/Ratings";
 import Link from "next/link";
+import {axiosBase} from '@/hooks/axiosSecure'
 
 const Profiles = () => {
+  const [profiles, setProfiles] = React.useState([]);
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+     const res= await axiosBase.get('/profile')
+
+     setProfiles(res.data?.data)
+    }
+
+    fetchData()
+  },[])
   return (
     <div>
       <Container>
@@ -46,28 +60,28 @@ const Profiles = () => {
 
         <main className="mb-7">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-10">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+            {profiles?.map(
               (item, i) => (
                 <div key={i} className="border">
                   <div className="p-">
-                    <div className=" bg-[#F5F5F5]">
+                    <div className="bg-[#F5F5F5]">
                       <Image
-                        className="p-4 w-full"
-                        src={user1}
-                        height={120}
-                        width={150}
-                        alt="user"
+                        className="p-4 w-full h-[280px] object-contain"
+                        src={item?.photo}
+                        alt="Profile Photo"
+                        width={100}
+                        height={100}
                       />
                     </div>
 
-                    <Link href="/single-profiles">
+                    <Link href={`/profiles/${item?.createdBy}`}>
                       {" "}
                       <div className="space-y-1 px-3 py-2">
                         <h2 className="font-bold text-[16px] text-[#000000]">
-                          Robert D. Caldwell
+                          {item?.fullName}
                         </h2>
                         <h3 className="font-medium text-[15px] text-[#000000]">
-                          Graphics designer
+                          {item?.title[0]?.designation|| "Designation"}
                         </h3>
 
                         <div className="flex items-center gap-2">

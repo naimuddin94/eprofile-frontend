@@ -1,10 +1,11 @@
-
-import logo from "../../assets/profiles/softronixs.jpeg";
+"use client"
+// import logo from "../../assets/profiles/softronixs.jpeg";
 import { GoVerified } from "react-icons/go";
 import Image from "next/image";
 import Ratings from "@/components/Ratings/Ratings";
-import user1 from "../../assets/profiles/user-1.png";
-
+// import user1 from "../../assets/profiles/user-1.png";
+import { useState, useEffect } from 'react'
+import { axiosBase } from '@/hooks/axiosSecure'
 import Container from "@/components/share/Container";
 
 import HeaderTabs from "@/components/SingleProfile/HeaderTabs";
@@ -12,13 +13,23 @@ import HeaderTabs from "@/components/SingleProfile/HeaderTabs";
 import MidTabs from "@/components/SingleProfile/MidTabs";
 import SingleProfilesContact from "@/components/SingleProfile/SingleProfilesContact";
 import ReviewSummary from "@/components/SingleProfile/ReviewSummary";
+import { usePathname, useSearchParams } from "next/navigation";
 
-const SingleService = () => {
+const SingleProfile = ({ userId }) => {
+  const [profile, setProfile] = useState({})
+  useEffect(() => {
+    const fetchData = () => {
+
+      axiosBase.get(`/profile/${userId}`).then((res) => {
+        setProfile(res?.data?.data)
+      })
+    }
+    fetchData()
+  }, [])
+  console.log(profile);
   return (
     <div>
-      
 
-      {/* headers */}
       <div>
         <div className="px-6 border-b-2 relative md:px-14 lg:px-20 py-4 md:py-5 lg:py-7">
           <div
@@ -31,13 +42,13 @@ const SingleService = () => {
 
           <div className=" flex flex-col lg:flex-row flex-wrap lg:pl-8 gap-3 lg:gap-5">
             <div className=" lg:w-[12%]  ">
-              <Image
+              {/* <Image
                 className="border-2 relative bottom-16 left-[30%] md:left-[40%] lg:left-0  shadow-md border-slate-300 rounded-full h-[120px] md:h-[150px] lg:h-[165px] w-[120px] md:w-[150px]  lg:w-[165px]"
                 src={logo}
                 height={80}
                 width={120}
                 alt="logo"
-              />
+              /> */}
             </div>
 
             <div className="space-y-2 relative bottom-14  lg:bottom-0 w-[86%]  lg:mt-6">
@@ -93,13 +104,13 @@ const SingleService = () => {
               <div key={i} className="border">
                 <div className="p-">
                   <div className=" bg-[#F5F5F5]">
-                    <Image
+                    {/* <Image
                       className="p-4 w-full"
                       src={user1}
                       height={120}
                       width={150}
                       alt="user"
-                    />
+                    /> */}
                   </div>
                   <div className="space-y-1 px-3 py-2">
                     <h2 className="font-bold text-[16px] text-[#000000]">
@@ -133,9 +144,9 @@ const SingleService = () => {
 
         <ReviewSummary />
       </Container>
-      
+
     </div>
   );
 };
 
-export default SingleService;
+export default SingleProfile;
