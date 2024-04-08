@@ -6,7 +6,7 @@ import { ProfileHeader } from '../..'
 
 export default function Member({setValue, setProfile, profile}) {
     // profile?.skills || 
-    const [data, setData] = useState(profile?.professionalMemberships || '')
+    const [data, setData] = useState('')
 
     const handlePrev = () => {
         setValue('skills')
@@ -16,7 +16,7 @@ export default function Member({setValue, setProfile, profile}) {
         setValue('languages')
     }
     useEffect(() => {
-        console.log(profile);
+        setData(profile?.professionalMemberships)
     }, [profile])
     return (
         <div>

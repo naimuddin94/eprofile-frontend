@@ -35,7 +35,9 @@ export default function Goals({ setValue, profile, userId }) {
                 },
             })
             setProfile(values)
+            // window.location.reload()
             setValue('name')
+
         }
         // console.log(res);
     };

@@ -26,7 +26,7 @@ const items = [
 
 export default function Languages({ setValue, profile, setProfile }) {
     // profile?.language || 
-    const [data, setData] = React.useState( profile?.language || [{
+    const [data, setData] = React.useState([{
         name: '',
         variant: ''
     }])
@@ -53,16 +53,20 @@ export default function Languages({ setValue, profile, setProfile }) {
         setValue('member')
     }
     const handleNext = () => {
-        setProfile({...profile, language: data})
+        setProfile({ ...profile, language: data })
         setValue('volunteer')
     }
     useEffect(() => {
-        console.log(profile);
+        if (profile?.language) setData(profile?.language)
+        else setData([{
+            name: '',
+            variant: ''
+        }])
     }, [profile])
     return (
         <div>
             <ProfileHeader title={'Languages'} />
-            {data.map((val, i) => <div key={i} className='space-y-4 mb-5 border-[1px] border-gray-300 px-5 py-10 rounded-lg relative'>
+            {data?.map((val, i) => <div key={i} className='space-y-4 mb-5 border-[1px] border-gray-300 px-5 py-10 rounded-lg relative'>
                 <div className='flex gap-5'>
                     <div className='w-[60%]'>
                         <ProfileInput type={'text'} name={'name'} value={val.name} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />

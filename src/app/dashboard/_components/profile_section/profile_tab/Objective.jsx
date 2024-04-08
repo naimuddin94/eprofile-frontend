@@ -8,7 +8,7 @@ import { useProfileStore } from '@/store/userStore'
 export default function Objective({ setValue,profile, setProfile, formData }) {
     // const { loading, profile, setProfile } = useProfileStore()
     // profile?.objective ||
-    const [data, setData] = useState(profile?.objective || '')
+    const [data, setData] = useState('')
 
     const handlePrev = () => {
         setValue('name')
@@ -19,9 +19,9 @@ export default function Objective({ setValue,profile, setProfile, formData }) {
         setProfile({...profile, objective: data})
         setValue('contact')
     }
-    // useEffect(() => {
-    //     console.log(profile);
-    // }, [profile])
+    useEffect(() => {
+        setData(profile?.objective)
+    }, [profile])
     return (
         <div>
             <ProfileHeader title={'Title or Occupation'} />

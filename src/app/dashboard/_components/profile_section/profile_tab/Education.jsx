@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GroupBtn from '../../share/GroupBtn'
 import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
@@ -8,16 +8,16 @@ import { ProfileHeader } from '../..'
 
 export default function Education({ setValue, profile, setProfile }) {
     // profile?.education || 
-    const [data, setData] = useState(profile?.education || [{
-            instituteName: '',
-            cgpa: '',
-            passingYear: '',
-            duration: ''
-        }])
+    const [data, setData] = useState([{
+        instituteName: '',
+        cgpa: '',
+        passingYear: '',
+        duration: ''
+    }])
 
     // add new 
     const handleClick = (isEdu) => {
-        setData([...data,{
+        setData(prev => [...prev, {
             instituteName: '',
             cgpa: '',
             passingYear: '',
@@ -25,16 +25,20 @@ export default function Education({ setValue, profile, setProfile }) {
         }])
     }
 
-    const handleChange =(e,i)=>{
-        const {name, value} = e.target;
+    useEffect(() => {
+        if (profile?.education) setData(profile?.education)
+        else setData([{ instituteName: '', cgpa: '', passingYear: '', duration: '' }])
+    }, [profile])
+    const handleChange = (e, i) => {
+        const { name, value } = e.target;
         const onChangeVal = [...data];
         onChangeVal[i][name] = value;
         setData(onChangeVal)
     }
 
-    const handleDelete =(i)=>{
+    const handleDelete = (i) => {
         const deleteData = [...data];
-        deleteData.splice(i,1)
+        deleteData.splice(i, 1)
         setData(deleteData)
     }
     const handlePrev = () => {
@@ -42,7 +46,7 @@ export default function Education({ setValue, profile, setProfile }) {
     }
     const handleNext = () => {
         // formData.append('education', JSON.stringify(data))
-        setProfile({...profile, education: data})
+        setProfile({ ...profile, education: data })
         setValue('work')
     }
     return (
@@ -50,20 +54,20 @@ export default function Education({ setValue, profile, setProfile }) {
             <ProfileHeader title={'Education'} />
             <div className='w-full mb-5'>
 
-                {data.map((val, i) => <div key={i} className='space-y-4  border-[1px] mb-5 border-gray-300 p-5 rounded-lg relative'>
+                {data?.map((val, i) => <div key={i} className='space-y-4  border-[1px] mb-5 border-gray-300 p-5 rounded-lg relative'>
                     <div className='flex gap-5'>
                         <div className='w-[70%] space-y-4'>
                             <ProfileInput type={'text'} name={'instituteName'}
                                 value={val.instituteName}
-                                label={'Institute Name'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e,i)}/>
+                                label={'Institute Name'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                             <div className='w-[200px]'>
-                                <ProfileInput type={'text'} value={val.cgpa} name={'cgpa'} label={'CGPA (Optional)'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e,i)}/>
+                                <ProfileInput type={'text'} value={val.cgpa} name={'cgpa'} label={'CGPA (Optional)'} isStar={false} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                             </div>
                         </div>
                         <div className='w-[30%] space-y-4'>
-                            <ProfileInput type={'date'} value={val.passingYear} name={'passingYear'} label={'Passing Year'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e,i)}/>
+                            <ProfileInput type={'date'} value={val.passingYear} name={'passingYear'} label={'Passing Year'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                             <div>
-                                <ProfileInput type={'text'} value={val.duration} name={'duration'} label={'Duration'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e,i)}/>
+                                <ProfileInput type={'text'} value={val.duration} name={'duration'} label={'Duration'} isStar={true} style={'profileInput h-12'} change={(e) => handleChange(e, i)} />
                             </div>
                         </div>
                     </div>

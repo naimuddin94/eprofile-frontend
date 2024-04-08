@@ -6,7 +6,7 @@ import { ProfileHeader } from '../..'
 
 export default function Volunteer({setValue, profile, setProfile}) {
     // profile?.volunteerWork || 
-    const [data, setData] = useState(profile?.volunteerWork || '')
+    const [data, setData] = useState( '')
 
     const handlePrev = () => {
         setValue('languages')
@@ -16,7 +16,7 @@ export default function Volunteer({setValue, profile, setProfile}) {
         setValue('projects')
     }
     useEffect(() => {
-        console.log(profile);
+        setData(profile?.volunteerWork)
     }, [profile])
     return (
         <div>

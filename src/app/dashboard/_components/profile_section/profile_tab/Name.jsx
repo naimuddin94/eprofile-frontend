@@ -1,22 +1,31 @@
 'use client'
 import { PIcon, Person } from '@/assets/images'
 import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Camera } from 'lucide-react'
 import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
 import { useProfileStore } from '@/store/userStore'
 
-export default function Name({ setValue, setProfile, profile }) {
-    // console.log(profile)
+
+const Name = memo(function Name({ setValue, setProfile, profile }) {
+
     // profile?.photo || profile?.photo
 
     const [data, setData] = useState({
-        fullName: profile?.fullName ||'',
-        coverPhoto: profile?.coverPhoto || null,
-        photo: profile?.photo || null
+        fullName: profile?.fullName ?? '',
+        coverPhoto: profile?.coverPhoto ?? null,
+        photo: profile?.photo ?? null
     })
+
+    useEffect(() => {
+        if (profile) {
+            setData((pre) => {
+                return { ...pre, ...profile }
+            })
+        }
+    }, [profile])
     const [error, setError] = useState(null)
     // const [photo, setphoto] = useState(null)
     const imgRef = useRef(null)
@@ -60,11 +69,11 @@ export default function Name({ setValue, setProfile, profile }) {
             {/* image section */}
             <div className='relative'>
                 <div className='md:h-[35vh] h-[25vh] w-full bg-slate-300 rounded-xl relative'>
-                    {data?.coverPhoto && <Image src={URL.createObjectURL(data?.coverPhoto)} alt='cover image' width={600} height={100} className='absolute top-0 h-full w-full rounded-xl object-cover' />}
+                    {data?.coverPhoto && <Image src={data?.coverPhoto && data?.coverPhoto instanceof File ? URL.createObjectURL(data?.coverPhoto) : data?.coverPhoto} alt='cover image' width={600} height={100} className='absolute top-0 h-full w-full rounded-xl object-cover' />}
                 </div>
                 <div onClick={handlephotoClk} className='bg-slate-300 md:w-[170px] w-[120px] md:h-[170px] h-[120px] rounded-full absolute md:-bottom-[4.8rem] -bottom-[3rem] md:left-1/2 md:-translate-x-1/2 left-5'>
                     <input type="file" name="photo" className='hidden' ref={photoRef} onChange={handlephotoCng} />
-                    {data?.photo && <Image src={URL.createObjectURL(data?.photo)} alt='person' width={100} height={100} className='w-full h-full rounded-full  object-cover' />}
+                    {data?.photo && <Image src={data?.photo&& data?.photo instanceof File ? URL.createObjectURL(data?.photo) : data?.photo} alt='person' width={100} height={100} className='w-full h-full rounded-full  object-cover' />}
                     <div className='text-primary absolute bottom-0 right-4 p-1 rounded-full bg-[#ffe8d9]'>
                         <Camera />
                     </div>
@@ -92,4 +101,8 @@ export default function Name({ setValue, setProfile, profile }) {
             </div>
         </div>
     )
-}
+})
+
+export default Name
+
+

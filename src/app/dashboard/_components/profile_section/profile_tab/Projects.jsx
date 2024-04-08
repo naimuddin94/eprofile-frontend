@@ -11,7 +11,7 @@ import Image from 'next/image'
 
 export default function Projects({ setValue,profile, setProfile }) {
     // profile?.project || 
-    const [data, setData] = useState(profile?.project || {
+    const [data, setData] = useState( {
         projectName: '',
         link: '',
         projectDescription: '',
@@ -45,15 +45,15 @@ export default function Projects({ setValue,profile, setProfile }) {
         setValue('publications')
     }
     useEffect(() => {
-        console.log(profile);
+        setData(profile?.project)
     }, [profile])
     return (
         <div>
             <ProfileHeader title={'Projects or Portfolio (if applicable)'} />
             <div className='space-y-4 border-[1px] mb-5 border-gray-300 p-5 rounded-lg relative'>
-                <ProfileInput type={'text'} value={data.projectName} name={'projectName'} label={'Project Name'} isStar={false} style={'profileInput h-12'} change={handleChange} />
-                <ProfileInput type={'text'} value={data.link} name={'link'} label={'Link'} isStar={false} style={'profileInput h-12'} change={handleChange} />
-                <ProfileInput type={'text'} value={data.projectDescription} name={'projectDescription'} label={'Project Description'} isStar={false} style={'profileInput h-12'} change={handleChange} />
+                <ProfileInput type={'text'} value={data?.projectName} name={'projectName'} label={'Project Name'} isStar={false} style={'profileInput h-12'} change={handleChange} />
+                <ProfileInput type={'text'} value={data?.link} name={'link'} label={'Link'} isStar={false} style={'profileInput h-12'} change={handleChange} />
+                <ProfileInput type={'text'} value={data?.projectDescription} name={'projectDescription'} label={'Project Description'} isStar={false} style={'profileInput h-12'} change={handleChange} />
                 <div>
                     <Label>Upload your file</Label>
                     <div className='flex gap-3 flex-wrap mt-4'>
@@ -65,12 +65,12 @@ export default function Projects({ setValue,profile, setProfile }) {
                             <CustomBtn style={'w-min text-sm font-bold p-1 h-min'} title={'browse file'} />
                         </div>
                         {data?.projectPhoto && <div className='w-[200px] h-[200px] rounded-lg'>
-                            <Image src={URL.createObjectURL(data.projectPhoto)} alt='' width={100} height={100} className='w-full h-full object-cover rounded-lg'/>
+                            <Image src={profile?.projectPhoto? profile?.projectPhoto : data?.projectPhoto instanceof File ? URL.createObjectURL(data?.projectPhoto):data?.projectPhoto} alt='' width={100} height={100} className='w-full h-full object-cover rounded-lg'/>
                         </div>}
                     </div>
 
                 </div>
-                <ProfileInput type={'text'} name={'portfolioLink'} value={data.portfolioLink} label={'Portfolio Link'} isStar={false} style={'profileInput h-12'} change={handleChange} />
+                <ProfileInput type={'text'} name={'portfolioLink'} value={data?.portfolioLink} label={'Portfolio Link'} isStar={false} style={'profileInput h-12'} change={handleChange} />
                 
             </div>
             {/* <p>{JSON.stringify(data)}</p> */}

@@ -62,7 +62,8 @@ export const useAuthStore = create(immer((set) => ({
 })))
 
 export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
-    ...initial,
+    error: null,
+    loading: false,
     profileData: null,
     setProfile: async (values) => {
         set((state) => { state.loading = true })
@@ -70,6 +71,7 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
             state.profileData = values,
             state.loading = false
         })
+        
     },
     getProfile: async (userId) => {
         set((state) => { state.loading = true })
@@ -80,6 +82,7 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
                     state.profileData = res.data ,
                     state.loading = false
                 })
+                
             }
             
         } catch (error) {

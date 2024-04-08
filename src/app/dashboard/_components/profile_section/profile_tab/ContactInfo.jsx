@@ -10,7 +10,7 @@ import { useProfileStore } from '@/store/userStore'
 export default function ContactInfo({setValue,profile, setProfile, formData}) {
     // const { loading, profile, setProfile } = useProfileStore()
     // profile?.contactInformation ||
-    const [data, setData] = useState(profile?.contactInformation || {
+    const [data, setData] = useState( {
             street: '',
             house: '',
             city: '',
@@ -46,7 +46,7 @@ export default function ContactInfo({setValue,profile, setProfile, formData}) {
     }
 
     useEffect(() => {
-        console.log(profile);
+        setData(profile?.contactInformation)    
     }, [profile])
     return (
         <div>

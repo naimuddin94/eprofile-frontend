@@ -6,7 +6,7 @@ import { ProfileHeader } from '../..'
 
 export default function Publications({setValue, profile, setProfile}) {
     // profile?.publications || 
-    const [data, setData] = useState(profile?.publications || '')
+    const [data, setData] = useState('')
 
     const handlePrev = () => {
         setValue('project')
@@ -16,7 +16,7 @@ export default function Publications({setValue, profile, setProfile}) {
         setValue('testimonials')
     }
     useEffect(() => {
-        console.log(profile);
+        setData(profile?.publications)
     }, [profile])
     return (
         <div>
