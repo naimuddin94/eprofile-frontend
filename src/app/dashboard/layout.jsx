@@ -9,15 +9,18 @@ const Layout = ({ children }) => {
 
   return (
     <ProtectedRoute>
-      <Suspense fallback={<p>Loading</p>}>
+
         <div className='flex ' suppressHydrationWarning={true}>
           <SideBar />
-          <div className='lg:w-[calc(100%_-_300px)] md:w-[calc(100%_-_220px)] w-full'>
-            {children}
+          <Suspense fallback={<p>Loading</p>}>
+            <div className='lg:w-[calc(100%_-_300px)] md:w-[calc(100%_-_220px)] w-full'>
+              {children}
 
-          </div>
+            </div>
+          </Suspense>
+
         </div>
-      </Suspense>
+
     </ProtectedRoute>
 
   )

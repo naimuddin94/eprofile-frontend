@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import React from 'react'
 
-export default function AuthLayout({child, path}) {
+export default function AuthLayout({child}) {
     return (
         <div className={`bg-background    relative z-0`}>
 

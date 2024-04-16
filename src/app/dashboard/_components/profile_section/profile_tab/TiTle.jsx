@@ -10,7 +10,7 @@ import { useProfileStore } from '@/store/userStore'
 
 
 const Title = memo(
-    function TiTle({ setValue, profile, setProfile, formData }) {
+    function TiTle({ setValue, profile, setProfile }) {
         // const {loading, profile, setProfile}= useProfileStore()
         const [data, setData] = useState([])
         useEffect(() => {
@@ -50,10 +50,7 @@ const Title = memo(
             setValue('objective')
         }
 
-        // useEffect(() => {
-        //     // console.log(profile);
-        //     // console.log(data)
-        // }, [data])
+        
         return (
             <div className=''>
                 <ProfileHeader title={'Title or Occupation'} />

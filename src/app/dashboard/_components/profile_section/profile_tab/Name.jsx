@@ -7,9 +7,12 @@ import { Camera } from 'lucide-react'
 import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
 import { useProfileStore } from '@/store/userStore'
+import { axiosBase } from '@/hooks/axiosSecure'
+import { toast } from 'sonner'
+import { jsonToFormData } from '@/lib/utils'
 
 
-const Name = memo(function Name({ setValue, setProfile, profile }) {
+const Name = memo(function Name({ setValue, setProfile, profile, userId }) {
 
     // profile?.photo || profile?.photo
 
@@ -55,15 +58,36 @@ const Name = memo(function Name({ setValue, setProfile, profile }) {
     }
 
 
-    const handleUpdate = () => {
+    const handleSave = () => {
         setProfile({ ...profile, ...data })
         // console.log(data);
         setValue('title')
     }
 
-    // useEffect(() => {
-    //     // console.log(profile)
-    // }, [profile])
+    const handleUpdate = async () => {
+        const values = { ...data };
+        const formData = jsonToFormData(values);
+        const res = await axiosBase.put(`/profile/${userId}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        }
+        );
+        console.log(res)
+        if (res.data.statusCode === 200) {
+            toast.success(res.data.message, {
+                action: {
+                    label: 'X',
+                    onClick: () => console.log('Undo')
+                },
+            })
+            setProfile(res?.data?.data)
+            // window.location.reload()
+            // setValue('name')
+
+        }
+    }
+
     return (
         <div>
             {/* image section */}
@@ -73,7 +97,7 @@ const Name = memo(function Name({ setValue, setProfile, profile }) {
                 </div>
                 <div onClick={handlephotoClk} className='bg-slate-300 md:w-[170px] w-[120px] md:h-[170px] h-[120px] rounded-full absolute md:-bottom-[4.8rem] -bottom-[3rem] md:left-1/2 md:-translate-x-1/2 left-5'>
                     <input type="file" name="photo" className='hidden' ref={photoRef} onChange={handlephotoCng} />
-                    {data?.photo && <Image src={data?.photo&& data?.photo instanceof File ? URL.createObjectURL(data?.photo) : data?.photo} alt='person' width={100} height={100} className='w-full h-full rounded-full  object-cover' />}
+                    {data?.photo && <Image src={data?.photo && data?.photo instanceof File ? URL.createObjectURL(data?.photo) : data?.photo} alt='person' width={100} height={100} className='w-full h-full rounded-full  object-cover' />}
                     <div className='text-primary absolute bottom-0 right-4 p-1 rounded-full bg-[#ffe8d9]'>
                         <Camera />
                     </div>
@@ -96,7 +120,7 @@ const Name = memo(function Name({ setValue, setProfile, profile }) {
                 {/* <p>{JSON.stringify(data)}</p> */}
                 {error && <small className='text-sm py-5 text-red-500'>{error}</small>}
                 <div className='mt-10 flex justify-end' >
-                    <CustomBtn style={'w-min'} title={'Save & Next'} click={handleUpdate} />
+                    <CustomBtn style={'w-min'} title={data.fullName === '' ? 'Save & Next' : 'Update & Next'} click={data.fullName === '' ? handleSave : handleUpdate} />
                 </div>
             </div>
         </div>

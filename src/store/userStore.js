@@ -73,6 +73,12 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
         })
         
     },
+    updateProfile: async (values) => {
+        set((state) => { state.loading = true })
+        set((state) => {
+            
+        })
+    },
     getProfile: async (userId) => {
         set((state) => { state.loading = true })
         try {

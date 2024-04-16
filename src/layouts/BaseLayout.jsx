@@ -1,15 +1,20 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 import AuthLayout from './AuthLayout'
 import Footer from '@/components/share/Footer'
-import { useLoginStore } from '@/store/userStore'
+import { useLoginStore, useProfileStore } from '@/store/userStore'
 import Navbar from '@/components/share/Navbar'
 
 
 export default function BaseLayout({ child }) {
+    const {getProfile} = useProfileStore()
     const path = usePathname()
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'))
+        getProfile(user?.id)
+    }, [])
     return (
         <div suppressHydrationWarning={true}>
 
