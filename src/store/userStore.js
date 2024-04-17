@@ -69,15 +69,39 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
         set((state) => { state.loading = true })
         set((state) => {
             state.profileData = values,
-            state.loading = false
+                state.loading = false
         })
-        
+
     },
-    updateProfile: async (values) => {
+    updateProfile: async (formData, userId) => {
+        console.log(formData, userId)
         set((state) => { state.loading = true })
-        set((state) => {
-            
-        })
+        try {
+            const res = await axiosBase.put(`/profile/${userId}`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            console.log(res)
+            if (res.data.statusCode === 200) {
+                toast.success(res.data.message, {
+                    action: {
+                        label: 'X',
+                        onClick: () => console.log('Undo')
+                    },
+                })
+
+            }
+            set((state) => ({
+                profileData: res.data.data,
+                loading: false
+            }))
+            return res
+        } catch (error) {
+            set((state) => ({ error: state.error, loading: false }));
+            console.log(error)
+            return error
+        }
     },
     getProfile: async (userId) => {
         set((state) => { state.loading = true })
@@ -85,12 +109,12 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
             const res = await axiosBase.get(`/profile/${userId}`)
             if (res.data.statusCode === 200) {
                 set((state) => {
-                    state.profileData = res.data ,
-                    state.loading = false
+                    state.profileData = res.data,
+                        state.loading = false
                 })
-                
+
             }
-            
+
         } catch (error) {
             set((state) => ({ error: error, loading: false }));
         }

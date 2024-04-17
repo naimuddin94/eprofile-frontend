@@ -7,13 +7,12 @@ import { Camera } from 'lucide-react'
 import CustomBtn from '@/components/share/CustomBtn'
 import ProfileInput from '../../share/ProfileInput'
 import { useProfileStore } from '@/store/userStore'
-import { axiosBase } from '@/hooks/axiosSecure'
-import { toast } from 'sonner'
 import { jsonToFormData } from '@/lib/utils'
+import LoadingSVG from '@/components/share/LoadingSVG'
 
 
 const Name = memo(function Name({ setValue, setProfile, profile, userId }) {
-
+    const { updateProfile, loading } = useProfileStore()
     // profile?.photo || profile?.photo
 
     const [data, setData] = useState({
@@ -25,7 +24,7 @@ const Name = memo(function Name({ setValue, setProfile, profile, userId }) {
     useEffect(() => {
         if (profile) {
             setData((pre) => {
-                return { ...pre, ...profile }
+                return { ...pre, photo: profile.photo, coverPhoto: profile.coverPhoto, fullName: profile.fullName }
             })
         }
     }, [profile])
@@ -57,34 +56,23 @@ const Name = memo(function Name({ setValue, setProfile, profile, userId }) {
         })
     }
 
-
-    const handleSave = () => {
-        setProfile({ ...profile, ...data })
-        // console.log(data);
-        setValue('title')
-    }
-
     const handleUpdate = async () => {
-        const values = { ...data };
-        const formData = jsonToFormData(values);
-        const res = await axiosBase.put(`/profile/${userId}`, formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
+        if (data?.photo === null && data?.coverPhoto === null && data?.fullName === '') {
+            setProfile({ ...profile, ...data })
+            // console.log(data);
+            setValue('title')
         }
-        );
-        console.log(res)
-        if (res.data.statusCode === 200) {
-            toast.success(res.data.message, {
-                action: {
-                    label: 'X',
-                    onClick: () => console.log('Undo')
-                },
-            })
-            setProfile(res?.data?.data)
-            // window.location.reload()
-            // setValue('name')
-
+        else {
+            const values = { ...data };
+            const formData = jsonToFormData(values);
+            const res = await updateProfile(formData, userId)
+            console.log(res)
+            if (res.data.statusCode === 200) {
+                setProfile(res.data.data)
+                //     // window.location.reload()
+                //     // setValue('name')
+            }
+            
         }
     }
 
@@ -120,7 +108,7 @@ const Name = memo(function Name({ setValue, setProfile, profile, userId }) {
                 {/* <p>{JSON.stringify(data)}</p> */}
                 {error && <small className='text-sm py-5 text-red-500'>{error}</small>}
                 <div className='mt-10 flex justify-end' >
-                    <CustomBtn style={'w-min'} title={data.fullName === '' ? 'Save & Next' : 'Update & Next'} click={data.fullName === '' ? handleSave : handleUpdate} />
+                    <CustomBtn style={'w-[150px]'} title={loading ? <LoadingSVG/> : data.fullName === '' ? 'Save & Next' : 'Update & Next'} click={handleUpdate} />
                 </div>
             </div>
         </div>

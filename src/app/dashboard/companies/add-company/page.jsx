@@ -6,10 +6,9 @@ import { useSearchParams } from 'next/navigation'
 // export const dynamic = 'force-dynamic'
 
 export default function AddCompany() {
-  // let search = useSearchParams()
-  // search = search.get('tab') || null
-  // console.log(search)
-  const [value, setValue] = React.useState('name')
+  let search = useSearchParams()
+  search = search.get('tab') || null
+  const [value, setValue] = React.useState( search || 'name')
   React.useEffect(() => {
     window.history.pushState(
       null,
