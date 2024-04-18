@@ -5,9 +5,9 @@ export const axiosBase = axios.create({
     withCredentials: true
   })
 
-const axiosSecure =()=>{
-    return axiosBase
-}
+// const axiosSecure =()=>{
+//     return axiosBase
+// }
 
 
-export default axiosSecure
+// export default axiosSecure

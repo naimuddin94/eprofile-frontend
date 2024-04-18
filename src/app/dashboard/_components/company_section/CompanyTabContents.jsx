@@ -3,6 +3,7 @@ import { CompanyHistory, CompanyIntro, CompanyLocation, CompanyName, CompanyProd
 
 export default function CompanyTabContents({ value, setValue }) {
     const [company, setCompany] = React.useState({})
+    const user = JSON.parse(localStorage.getItem('user'))
     return (
         <div>
             {value === 'name' && <CompanyName setValue={setValue} company={company} setCompany={setCompany} />}
@@ -19,7 +20,7 @@ export default function CompanyTabContents({ value, setValue }) {
             {value === 'partnerships' && <Partnerships setValue={setValue} company={company} setCompany={setCompany}/>}
             {value === 'responsibility' && <Responsibility setValue={setValue} company={company} setCompany={setCompany}/>}
             {value === 'goals' && <CompanyGoals setValue={setValue} company={company} setCompany={setCompany}/>}
-            {value === 'contact' && <CompanyContact setValue={setValue} company={company} setCompany={setCompany}/>}
+            {value === 'contact' && <CompanyContact setValue={setValue} company={company} setCompany={setCompany} userId={user?.id}/>}
         </div>
     )
 }

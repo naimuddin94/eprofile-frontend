@@ -57,7 +57,7 @@ const Title = memo(
             }
         }
 
-        console.log(data)
+        // console.log(data)
         return (
             <div className=''>
                 <ProfileHeader title={'Title or Occupation'} />

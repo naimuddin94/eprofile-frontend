@@ -100,7 +100,13 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
         } catch (error) {
             set((state) => ({ error: state.error, loading: false }));
             console.log(error)
-            return error
+            // toast.error(error.message, {
+            //     action: {
+            //         label: 'X',
+            //         onClick: () => console.log('Undo')
+            //     },
+            // })
+            return
         }
     },
     getProfile: async (userId) => {
@@ -109,7 +115,7 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
             const res = await axiosBase.get(`/profile/${userId}`)
             if (res.data.statusCode === 200) {
                 set((state) => {
-                    state.profileData = res.data,
+                    state.profileData = res.data.data,
                         state.loading = false
                 })
 
@@ -121,3 +127,6 @@ export const useProfileStore = create(immer(subscribeWithSelector((set) => ({
     }
 
 }))))
+
+
+

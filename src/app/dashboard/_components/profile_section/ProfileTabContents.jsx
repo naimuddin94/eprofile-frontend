@@ -5,20 +5,21 @@ import { useProfileStore } from '@/store/userStore'
 
 
 export default function ProfileTabContents({ value, setValue }) {
-    const { profileData } = useProfileStore()
+    const { profileData, updateProfile, loading } = useProfileStore()
     const user = JSON.parse(localStorage.getItem('user'))
     const [profile, setProfile] = useState({})
     
 
     useEffect(() => {
-        if (profileData?.data)
-            setProfile(profileData?.data)
+        if (profileData)
+            setProfile(profileData)
     }, [profileData])
     // console.log(profileData)
     return (
+        
         <div>
-            {value === 'name' && <Name setValue={setValue} setProfile={setProfile} profile={profile} userId={user?.id}/>}
-            {value === 'title' && <Title setValue={setValue} setProfile={setProfile} profile={profile} />}
+            {value === 'name' && <Name setValue={setValue} setProfile={setProfile} profile={profile} userId={user?.id} loading={loading} updateProfile={updateProfile} profileData={profileData}/>}
+            {value === 'title' && <Title setValue={setValue} setProfile={setProfile} profile={profile} loading={loading} updateProfile={updateProfile} profileData={profileData}/>}
             {value === 'objective' && <Objective setValue={setValue} setProfile={setProfile} profile={profile} />}
             {value === 'contact' && <ContactInfo setValue={setValue} setProfile={setProfile} profile={profile} />}
             {value === 'education' && <Education setValue={setValue} setProfile={setProfile} profile={profile} />}

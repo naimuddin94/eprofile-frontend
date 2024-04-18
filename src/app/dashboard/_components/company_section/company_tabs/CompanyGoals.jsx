@@ -9,7 +9,7 @@ export default function CompanyGoals({ setValue, company, setCompany }) {
 
     useEffect(() => {
         if (company) {
-            setData(company?.futureGoals)
+            setData(company?.goals)
         }
     }, [company])
 
@@ -17,14 +17,14 @@ export default function CompanyGoals({ setValue, company, setCompany }) {
         setValue('responsibility')
     }
     const handleNext = () => {
-        setCompany({ ...company, futureGoals: data })
+        setCompany({ ...company, goals: data })
         setValue('contact')
     }
     return (
         <div>
             <ProfileHeader title={'Future Goals and Outlook'} />
             <div className='mb-10'>
-                <ProfileTextArea type={'text'} name={'futureGoals'} value={data} change={(e) => setData(e.target.value)} label={'Future Goals'} isStar={false} style={'profileInput h-28'} />
+                <ProfileTextArea type={'text'} name={'goals'} value={data} change={(e) => setData(e.target.value)} label={'Future Goals'} isStar={false} style={'profileInput h-28'} />
             </div>
             <GroupBtn handlePrev={handlePrev} handleNext={handleNext} />
         </div>

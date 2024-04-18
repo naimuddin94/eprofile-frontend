@@ -11,7 +11,7 @@ import Link from "next/link"
 import { api } from "@/api"
 import { toast } from "sonner"
 
-import {  useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useAuthStore } from '@/store/userStore'
 import { axiosBase } from '@/hooks/axiosSecure'
 
@@ -29,9 +29,8 @@ const formSchema = z.object({
     }),
 })
 
-export default function SignIn() { 
-    const { setLogin}=useAuthStore()
-    const router = useRouter()
+export default function SignIn() {
+    const { setLogin } = useAuthStore()
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -42,12 +41,12 @@ export default function SignIn() {
     })
 
     // 2. Define a submit handler.
-    async function  onSubmit(values) {
+    async function onSubmit(values) {
 
         try {
             const res = await axiosBase.post('/auth/login', values)
-            if(res.data.statusCode === 200){
-                
+            if (res.data.statusCode === 200) {
+
                 setLogin(res.data.data)
                 toast.success(res.data.message, {
                     action: {
@@ -55,10 +54,16 @@ export default function SignIn() {
                         onClick: () => console.log('Undo')
                     },
                 })
-                router.push('/dashboard')
+                window.location.href = '/dashboard'
             }
         } catch (error) {
-            console.log(error)
+            toast.error(error.message, {
+                action: {
+                    label: 'X',
+                    onClick: () => console.log('Undo')
+                },
+            })
+            // console.log(error)
         }
     }
     // console.log(isLogin)

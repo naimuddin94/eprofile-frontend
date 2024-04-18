@@ -42,6 +42,7 @@ import Partnerships from './company_section/company_tabs/Partnerships'
 import Responsibility from './company_section/company_tabs/Responsibility'
 import CompanyGoals from './company_section/company_tabs/CompanyGoals'
 import CompanyContact from './company_section/company_tabs/CompanyContact'
+import ProfileLoader from './share/ProfileLoader'
 
 
-export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact, Loading, DashboardHeader}
+export {Name,Objective, ContactInfo , Education, WorkExperience, Skills, Member, Languages, Volunteer, Projects, Publications, Testimonials, Goals, Hobbies, Title, ComingSoon, ProfileHeader, TabLists, ProfileTabContents, CompanyTabContents, CompanyName, CompanyIntro, MissionStatement, CompanyHistory, Executives, CompanyLocation, CompanyProducts, CompanyTargetMarket, CompanyAdvantage, FinancialOverview, Milestones, Partnerships, Responsibility, CompanyGoals, CompanyContact, Loading, DashboardHeader, ProfileLoader}

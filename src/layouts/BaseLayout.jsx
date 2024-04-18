@@ -9,12 +9,7 @@ import Navbar from '@/components/share/Navbar'
 
 
 export default function BaseLayout({ child }) {
-    const {getProfile} = useProfileStore()
     const path = usePathname()
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'))
-        getProfile(user?.id)
-    }, [])
     return (
         <div suppressHydrationWarning={true}>
 

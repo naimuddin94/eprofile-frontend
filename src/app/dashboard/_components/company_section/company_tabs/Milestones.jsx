@@ -9,7 +9,7 @@ export default function Milestones({ setValue, company, setCompany }) {
 
     useEffect(() => {
         if (company) {
-            setCompany({ ...company, achievements: data })
+            setData(company?.achievements)
         }
     }, [company])
 

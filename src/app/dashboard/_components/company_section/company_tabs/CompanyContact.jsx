@@ -8,10 +8,10 @@ import GroupBtn from '../../share/GroupBtn';
 import { axiosBase } from '@/hooks/axiosSecure';
 import { jsonToFormData } from '@/lib/utils';
 
-export default function CompanyContact({ setValue, company, setCompany }) {
+export default function CompanyContact({ setValue, company, setCompany, userId }) {
     const [data, setData] = React.useState({
         street: '',
-        house: '',
+        // house: '',
         city: '',
         state: '',
         postalCode: '',
@@ -37,13 +37,15 @@ export default function CompanyContact({ setValue, company, setCompany }) {
         setValue('goals')
     }
     const handleNext = async () => {
-        const values = { ...company, contact: data, createdBy: userId };
+        const values = { ...company, contact: data };
+        console.log(values);
         const formData = jsonToFormData(values);
         const res = await axiosBase.post("/companies", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
         });
+        console.log(res);
         if(res.data.statusCode === 200){
             toast.success(res.data.message, {
                 action: {
@@ -51,7 +53,7 @@ export default function CompanyContact({ setValue, company, setCompany }) {
                     onClick: () => console.log('Undo')
                 },
             })
-            setProfile(values)
+            setCompany(res.data.data)
             // window.location.reload()
             setValue('name')
 
@@ -60,7 +62,7 @@ export default function CompanyContact({ setValue, company, setCompany }) {
 
     useEffect(() => {
         if (company) {
-            setCompany(company?.contact)
+            setData(company?.contact)
         }
     }, [company])
     return (
@@ -71,7 +73,7 @@ export default function CompanyContact({ setValue, company, setCompany }) {
                 <div className='formGap'>
                     <div className='doubleInput'>
                         <ProfileInput type={'text'}  label={'Street'} name={'street'} isStar={true} style={'profileInput h-12'} change={ handleChange} />
-                        <ProfileInput type={'text'} label={'House'} name={'house'} isStar={true} style={'profileInput h-12'} change={ handleChange} />
+                        {/* <ProfileInput type={'text'} label={'House'} name={'house'} isStar={true} style={'profileInput h-12'} change={ handleChange} /> */}
                     </div>
                     <div className='doubleInput'>
                         <ProfileInput type={'text'} label={'City'} name={'city'} isStar={true} style={'profileInput h-12'} change={ handleChange} />

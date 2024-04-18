@@ -8,7 +8,7 @@ export default function FinancialOverview({ setValue, company, setCompany }) {
     const [data, setData] = React.useState('')
     useEffect(() => {
         if (company) {
-            setData(company?.overview)
+            setData(company?.financial)
         }
     }, [company])
 
@@ -16,14 +16,14 @@ export default function FinancialOverview({ setValue, company, setCompany }) {
         setValue('advantage')
     }
     const handleNext = () => {
-        setCompany({ ...company, overview: data })
+        setCompany({ ...company, financial: data })
         setValue('milestones')
     }
     return (
         <div>
             <ProfileHeader title={'Financial Overview'} />
             <div className='mb-10'>
-                <ProfileTextArea type={'text'} name={'overview'} value={data} change={(e) => setData(e.target.value)} label={'Overview'} isStar={false} style={'profileInput h-28'} />
+                <ProfileTextArea type={'text'} name={'financial'} value={data} change={(e) => setData(e.target.value)} label={'Overview'} isStar={false} style={'profileInput h-28'} />
             </div>
             <GroupBtn handlePrev={handlePrev} handleNext={handleNext} />
         </div>
